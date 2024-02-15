@@ -5,6 +5,7 @@ const Home: React.FC = () => {
         <div>
             <h1>Minha Pagina</h1>
             <p> Esta e uma pagina basica criada com TypeScript! </p>
+
         </div>
     );
 }
