@@ -29,8 +29,6 @@ const products: Product[] = [
     }
 ];
 
-
-
 const AddCards: React.FC = () => {
     return(
         <Grid item md={8} xs={12}>
@@ -52,7 +50,7 @@ const TittleSectionTwo: React.FC = () => {
     return(
         <Grid item md={2.5} xs={4} className="tittle-Section-Two" sx={{marginTop:"10%"}}>
             <Grid container className="tittle-Section-Container">
-                <Typography variant="h1" style={{width: '100%' }}>I Nostri Prodotti</Typography>
+                <Typography variant="h1" className={"tittle-Nostri"} style={{width: '100%' }}>I Nostri Prodotti</Typography>
                 <Typography variant="subtitle1" sx={{ fontFamily: 'Inter, sans-serif', textAlign: 'center', fontWeight: 'light'}}>Gli articoli più venduti della nostra collezione </Typography>
             </Grid>
         </Grid>
@@ -60,7 +58,7 @@ const TittleSectionTwo: React.FC = () => {
 }
 const BannerAndTitle: React.FC = () => {
     return (
-        <Grid container justifyContent="center" alignItems="center" style={{ height: "100vh", backgroundImage: `url(${banner})`, backgroundSize: "cover", backgroundPosition: "center" }}>
+        <Grid container justifyContent="center" alignItems="center" style={{ height: "90vh", backgroundImage: `url(${banner})`, backgroundSize: "cover", backgroundPosition: "center" }}>
             <Grid item xs={12} style={{ textAlign: "center" }}>
                 <img
                     src={logo}
@@ -68,7 +66,7 @@ const BannerAndTitle: React.FC = () => {
                     className="logo-img"
                     style={{marginTop:"4.5%"}}
                 />
-                <Typography variant="h2" style={{ fontFamily: 'Inter, sans-serif', fontWeight: 'bold', fontSize: "{ xs: '2rem', md: '4rem' }", textAlign: 'center', color: "#FFFFFF", textShadow: "2px 2px 4px rgba(0, 0, 0, 0.5)" }}>
+                <Typography variant="h2" style={{ fontFamily: 'Inter, sans-serif', fontWeight: 'bold', fontSize: "{ xs: 0.5rem, md: 7rem }", textAlign: 'center', color: "#FFFFFF", textShadow: "2px 2px 4px rgba(0, 0, 0, 0.5)" }}>
                     Pulizia senza sforzo <br />
                     eleganza senza limiti.
                 </Typography>
@@ -84,13 +82,19 @@ const BannerAndTitle: React.FC = () => {
 const Home: React.FC = () => {
     return (
             <Grid container direction="column">
-                <ToolbarComponent/>
-                <BannerAndTitle/>
-            <Grid container xs={12} className="sectionTwo" direction="column">
-                <TittleSectionTwo/>
-                <AddCards/>
+                <Grid item>
+                    <ToolbarComponent/>
+                    <BannerAndTitle/>
+                </Grid>
+                <Grid item xs={12} className="sectionTwo" direction="column">
+                    <TittleSectionTwo/>
+                    <AddCards/>
+                </Grid>
+                <Grid item xs={12} className="sectionTwo" direction="column">
+                    <TittleSectionTwo/>
+                    <AddCards/>
+                </Grid>
             </Grid>
-        </Grid>
     );
 }
 

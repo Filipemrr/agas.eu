@@ -29,3 +29,13 @@
     justify-content: center;
     align-items: center;
 }
+
+.tittle-Nostri {
+    font-size: 0.5rem; /* Tamanho da fonte para xs */
+}
+
+@media (min-width: 768px) {
+    .tittle-Nostri {
+        font-size: 2rem; /* Tamanho da fonte para md */
+    }
+}
