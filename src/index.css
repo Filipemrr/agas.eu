@@ -3,3 +3,8 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+h2 {
+    font-family: Inter, sans-serif;
+    font-weight: bold;
+}

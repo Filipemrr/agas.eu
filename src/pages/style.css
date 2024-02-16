@@ -1,0 +1,22 @@
+.banner-img {
+    width: 100%;
+    height: auto;
+    filter: blur(0.5px);
+}
+
+.main-title {
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #ffffff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Adicionando sombra */
+}
+
+.subtitle {
+    font-family: 'Inter', sans-serif;
+    font-weight: normal;
+    color: #ffffff;
+}
