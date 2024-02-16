@@ -1,22 +1,37 @@
 .banner-img {
     width: 100%;
     height: auto;
-    filter: blur(0.5px);
 }
 
 .main-title {
-
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
     color: #ffffff;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Adicionando sombra */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+.logo-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100px;
+    height: auto;
+    padding: 10px;
 }
 
-.subtitle {
-    font-family: 'Inter', sans-serif;
-    font-weight: normal;
-    color: #ffffff;
+.sectionTwo {
+    background: #D4D4D4;
+    height: 100vh;
+    border: 1px solid red;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+}
+
+.cardsRow {
+    display: flex;
+    justify-content:center;
+    align-items: center;
 }

@@ -1,12 +1,10 @@
 import * as React from 'react';
 import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import LocalPhoneIcon from '@mui/icons-material/LocalPhone';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import MailOutlineIcon from '@mui/icons-material/MailOutline';
-import logo from './logo.png';
-import {Container, Grid, Typography} from "@mui/material";
+import {Grid, Typography} from "@mui/material";
 import {ReactNode} from "react";
 
 
@@ -17,7 +15,7 @@ interface IconWithTextProps {
 
 const IconWithText: React.FC<IconWithTextProps> = ({icon, text}) => {
     return (
-        <Grid item md={1.3} sx={{display: 'flex', justifyContent: 'start', alignItems: 'center'}}>
+        <Grid item md={1.5} sx={{display: 'flex', justifyContent: 'start', alignItems: 'center'}}>
             {icon}
             <Typography sx={{paddingLeft: "5px", fontSize: "13px"}}>{text}</Typography>
         </Grid>
