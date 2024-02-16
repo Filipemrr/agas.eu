@@ -8,7 +8,7 @@ function App(){
       <Router>
         <Box>
           <Routes>
-            <Route path="/home" element={<Home/>} />
+            <Route path="/Home" element={<Home/>} />
           </Routes>
         </Box>
       </Router>
@@ -16,3 +16,4 @@ function App(){
 }
 
 export default App;
+

@@ -1,12 +1,9 @@
 import React from 'react';
+import ButtonAppBar from "../components/toolbar/toolbar";
 
 const Home: React.FC = () => {
     return (
-        <div>
-            <h1>Minha Pagina</h1>
-            <p> Esta e uma pagina basica criada com TypeScript! </p>
-
-        </div>
+        <ButtonAppBar/>
     );
 }
 
