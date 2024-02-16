@@ -22,7 +22,7 @@ const IconWithText: React.FC<IconWithTextProps> = ({icon, text}) => {
     );
 }
 
-export default function ButtonAppBar() {
+export default function ToolbarComponent() {
     return (
         <Grid container>
             <AppBar position="static">

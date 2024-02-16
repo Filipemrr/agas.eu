@@ -1,10 +1,10 @@
 import React from "react";
-import ButtonAppBar from "../../components/toolbar/toolbar";
+import ToolbarComponent from "../../components/toolbar/toolbar";
 
 
 const AboutUs: React.FC = () => {
     return (
-        <ButtonAppBar/>
+        <ToolbarComponent/>
     );
 }
 export default AboutUs;

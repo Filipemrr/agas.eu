@@ -14,19 +14,18 @@ interface ProductCardProps {
 
 const ProductCard: React.FC<ProductCardProps> = ({ imageUrl, title, description }) => {
     return (
-        <Card sx={{ maxWidth: 345, border:"1px solid #2D2F36" }}>
+        <Card sx={{ maxWidth: 300, border:"1px solid #2D2F36" }}>
             <CardMedia
-                sx={{ height:260 }}
+                sx={{ height:260, backgroundColor:"#CFCBCB"}}
                 image= {imageUrl}
                 title= {title}
             />
             <CardContent className={"cardContent"} sx={{ height:260 }}>
                 <Typography gutterBottom variant="h5" component="div" color={"white"}>
-                    Lizard
+                    {title}
                 </Typography>
                 <Typography variant="body2" color={"white"}>
-                    Lizards are a widespread group of squamate reptiles, with over 6,000
-                    species, ranging across all continents except Antarctica
+                    {description}
                 </Typography>
             </CardContent>
         </Card>
