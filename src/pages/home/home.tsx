@@ -1,10 +1,10 @@
 import React from 'react';
-import ButtonAppBar from "../components/toolbar/toolbar";
-import banner from "../images/banner.jpg";
+import ButtonAppBar from "../../components/toolbar/toolbar";
+import banner from "../../images/banner.jpg";
 import {Box, Grid, Typography} from "@mui/material";
-import logo from '../images/logo.png'
+import logo from '../../images/logo.png'
 import "./style.css";
-import ProductCard from "../components/ProductsCard/ProductCard";
+import ProductCard from "../../components/ProductsCard/ProductCard";
 
 const Home: React.FC = () => {
     return (
