@@ -1,11 +1,10 @@
-import React, {useEffect, useState} from 'react';
 import ToolbarComponent from "../../components/toolbar/toolbar";
-import bannerMd from "../../images/banner.jpg";
-import bannerXS from "../../images/XSBanner.jpg";
+
 import {Grid, Typography, useMediaQuery} from "@mui/material";
-import logo from '../../images/logo.png'
+
 import "./style.css";
 import ProductCard from "../../components/ProductsCard/ProductCard";
+import BannerAndTittle from "../../components/Banner/BannerAndTittle";
 
 interface Product {
     title: string;
@@ -13,9 +12,6 @@ interface Product {
     imageUrl: string;
 }
 
-interface BannerProps {
-    tittleComponent: React.ReactNode;
-}
 
 const products: Product[] = [
     {
@@ -86,36 +82,6 @@ const TittleSectionThree: React.FC = () => {
     )
 }
 
-const Banner: React.FC <BannerProps> = ({ tittleComponent }) => {
-    const isSmallScreen = useMediaQuery('(max-width:600px)');
-    const [banner, setBanner] = useState(bannerMd);
-    useEffect(() => {
-        function handleResize() {
-            if(window.innerWidth < 800) {
-                setBanner(bannerXS);
-            } else {
-                setBanner(bannerMd);
-            }
-        }
-        window.addEventListener('resize', handleResize);
-        return () => window.removeEventListener('resize', handleResize);
-    }, []);
-
-    return (
-        <Grid container justifyContent="center" alignItems="center" style={{ height: "90vh", backgroundImage:`url(${banner})`, backgroundSize: "cover", backgroundPosition: "center" }}>
-            <Grid item xs={12} style={{ textAlign: "center" }}>
-                <img
-                    src={logo}
-                    alt="logo"
-                    className="logo-img"
-                    style={{marginTop: isSmallScreen ? "13.5%" : "4.5%", marginLeft:"1%"}}
-                />
-                {tittleComponent}
-            </Grid>
-        </Grid>
-    )
-}
-
 const SponsorCard: React.FC = () => {
     const isSmallScreen = useMediaQuery('(max-width:600px)');
     return(
@@ -141,14 +107,14 @@ const Home: React.FC = () => {
             <Grid container direction="column">
                 <Grid item>
                     <ToolbarComponent/>
-                    <Banner tittleComponent={<TittleSectionOne/>}/>
+                    <BannerAndTittle tittleComponent={<TittleSectionOne/>}/>
                 </Grid>
                 <Grid item xs={12} className="sectionTwo" direction="column">
                     <TittleSectionTwo/>
                     <AddCards/>
                 </Grid>
                 <Grid item xs={12} className="sectionThree" direction="column">
-                    <Banner tittleComponent={<TittleSectionThree/>}/>
+                    <BannerAndTittle tittleComponent={<TittleSectionThree/>}/>
                 </Grid>
             </Grid>
     );
