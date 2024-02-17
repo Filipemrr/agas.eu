@@ -8,3 +8,14 @@ h2 {
     font-family: Inter, sans-serif;
     font-weight: bold;
 }
+@media (max-width: 600px) {
+    h1.MuiTypography-root {
+        font-size: 12vw !important;
+    }
+    h2.MuiTypography-root {
+        font-size: 8vw !important;
+    }
+    .MuiTypography-subtitle1 {
+        font-size: 3vw !important;
+    }
+}

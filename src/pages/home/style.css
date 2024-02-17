@@ -34,7 +34,7 @@
     font-size: 0.5rem; /* Tamanho da fonte para xs */
 }
 
-@media (min-width: 768px) {
+@media (min-width:600px) {
     .tittle-Nostri {
         font-size: 2rem; /* Tamanho da fonte para md */
     }

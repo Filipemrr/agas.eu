@@ -48,26 +48,3 @@ export default function ButtonAppBar() {
         </Box>
     );
 }
-/*
-const isXsScreen = useMediaQuery('(max-width:600px)');
-return (
-    <Grid container>
-        <AppBar position="sticky" >
-            <Toolbar sx={{ backgroundColor: '#15171F', borderBottom: '3px solid green'}}>
-                <Grid container md={12} direction="row">
-                    <Typography sx={{
-                        fontSize: "15px",
-                        paddingRight: "3vh",
-                        fontFamily: "Alegreya SC, sans-serif",
-                    }}>Servizio Clienti</Typography>
-                    <Grid item direction="row">
-                        <IconWithText icon={<AccessTimeIcon />} text={"Lun/Ven 10-13  15-18"} />
-                        <IconWithText icon={<LocalPhoneIcon />} text={"+39 371 375 7628"} />
-                        <IconWithText icon={<MailOutlineIcon />} text={"info@agas.eu"} />
-                    </Grid>
-                </Grid>
-            </Toolbar>
-        </AppBar>
-    </Grid>
-
- */
