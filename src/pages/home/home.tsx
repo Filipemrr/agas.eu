@@ -5,6 +5,8 @@ import {Grid, Typography, useMediaQuery} from "@mui/material";
 import "./style.css";
 import ProductCard from "../../components/ProductsCard/ProductCard";
 import BannerAndTittle from "../../components/Banner/BannerAndTittle";
+import React from "react";
+import SponsorCard from "../../components/SponsorCard/SponsorCard";
 
 interface Product {
     title: string;
@@ -82,14 +84,14 @@ const TittleSectionThree: React.FC = () => {
     )
 }
 
-const SponsorCard: React.FC = () => {
+const AddingSponsorCard: React.FC = () => {
     const isSmallScreen = useMediaQuery('(max-width:600px)');
     return(
         <Grid item md={8} xs={12} sx={{paddingTop: isSmallScreen ? "10%": "2%"}} >
             <Grid container className={"cardsRow"} spacing={5}>
                 {products.map((product: Product, index:number) => (
                     <Grid item key={index}>
-                        <ProductCard
+                        <SponsorCard
                             title={product.title}
                             description={product.description}
                             imageUrl={product.imageUrl}
@@ -114,7 +116,8 @@ const Home: React.FC = () => {
                     <AddCards/>
                 </Grid>
                 <Grid item xs={12} className="sectionThree" direction="column">
-                    <BannerAndTittle tittleComponent={<TittleSectionThree/>}/>
+                    <BannerAndTittle tittleComponent={<TittleSectionThree/>} content={<SponsorCard title={"Sponsor 1"} description={"Description 1"} imageUrl={""}/>}/>
+
                 </Grid>
             </Grid>
     );

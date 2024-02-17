@@ -6,8 +6,9 @@ import logo from "../../images/logo.png";
 
 interface BannerProps {
     tittleComponent: React.ReactNode;
+    content?: React.ReactNode;
 }
- const Banner: React.FC <BannerProps> = ({ tittleComponent }) => {
+ const Banner: React.FC <BannerProps> = ({ tittleComponent, content }) => {
     const isSmallScreen = useMediaQuery('(max-width:600px)');
     const [banner, setBanner] = useState(bannerMd);
     useEffect(() => {
@@ -30,7 +31,7 @@ interface BannerProps {
             backgroundSize: "cover",
             backgroundPosition: "center"
         }}>
-            <Grid item xs={12} style={{textAlign: "center"}}>
+            <Grid item direction={"column"} xs={12} style={{textAlign: "center",display: "flex", alignItems:"center"}}>
                 <img
                     src={logo}
                     alt="logo"
@@ -38,9 +39,11 @@ interface BannerProps {
                     style={{marginTop: isSmallScreen ? "13.5%" : "4.5%", marginLeft: "1%"}}
                 />
                 {tittleComponent}
+                {content && content}
             </Grid>
         </Grid>
     )
 }
+
 
 export default Banner;
