@@ -12,6 +12,11 @@ interface Product {
     description: string;
     imageUrl: string;
 }
+
+interface BannerProps {
+    tittleComponent: React.ReactNode;
+}
+
 const products: Product[] = [
     {
         title: "Produto 1",
@@ -48,6 +53,20 @@ const AddCards: React.FC = () => {
         </Grid>
     )
 }
+
+const TittleSectionOne: React.FC = () => {
+    return(
+        <Grid item xs={12}>
+            <Typography variant="h2" style={{ fontFamily: 'Inter, sans-serif', fontWeight: 'bold', textAlign: 'center', color: "#FFFFFF", textShadow: "2px 2px 4px rgba(0, 0, 0, 0.5)" }}>
+                Pulizia senza sforzo <br />
+                eleganza senza limiti.
+            </Typography>
+            <Typography variant="subtitle1" style={{ fontFamily: 'Inter, sans-serif', fontWeight: 'normal', textAlign: 'center', color: "#FFFFFF", textShadow: "2px 2px 4px rgba(0, 0, 0, 0.5)", padding: "10px" }}>
+                Innovazione e Qualità, Elevarono lo Standard della Tua Esperienza.
+            </Typography>
+        </Grid>
+    )
+}
 const TittleSectionTwo: React.FC = () => {
     return(
         <Grid item md={2} xs={4} className="tittle-Section-Two" sx={{marginTop:"8%"}}>
@@ -58,7 +77,16 @@ const TittleSectionTwo: React.FC = () => {
         </Grid>
     )
 }
-const BannerAndTitle: React.FC = () => {
+const TittleSectionThree: React.FC = () => {
+    return (
+        <Grid container className="tittle-Section-Container">
+            <Typography variant="h2" style={{width: '100%',color: "#FFFFFF", textShadow: "2px 2px 4px rgba(0, 0, 0, 0.5)", fontWeight: 'bold'}}>iI nostri partner...</Typography>
+            <Typography variant="subtitle1" sx={{ fontFamily: 'Inter, sans-serif', textAlign: 'center', fontWeight: 'light', color: "#FFFFFF", textShadow: "2px 2px 4px rgba(0, 0, 0, 0.5)"}}>Gli articoli più venduti della nostra collezione </Typography>
+        </Grid>
+    )
+}
+
+const Banner: React.FC <BannerProps> = ({ tittleComponent }) => {
     const isSmallScreen = useMediaQuery('(max-width:600px)');
     const [banner, setBanner] = useState(bannerMd);
     useEffect(() => {
@@ -82,16 +110,26 @@ const BannerAndTitle: React.FC = () => {
                     className="logo-img"
                     style={{marginTop: isSmallScreen ? "13.5%" : "4.5%", marginLeft:"1%"}}
                 />
-                <Grid item xs={12}>
-                    <Typography variant="h2" style={{ fontFamily: 'Inter, sans-serif', fontWeight: 'bold', textAlign: 'center', color: "#FFFFFF", textShadow: "2px 2px 4px rgba(0, 0, 0, 0.5)" }}>
-                        Pulizia senza sforzo <br />
-                        eleganza senza limiti.
-                    </Typography>
-                    <Typography variant="subtitle1" style={{ fontFamily: 'Inter, sans-serif', fontWeight: 'normal', textAlign: 'center', color: "#FFFFFF", textShadow: "2px 2px 4px rgba(0, 0, 0, 0.5)", padding: "10px" }}>
-                        Innovazione e Qualità, Elevarono lo Standard della Tua Esperienza.
-                    </Typography>
-                </Grid>
+                {tittleComponent}
+            </Grid>
+        </Grid>
+    )
+}
 
+const SponsorCard: React.FC = () => {
+    const isSmallScreen = useMediaQuery('(max-width:600px)');
+    return(
+        <Grid item md={8} xs={12} sx={{paddingTop: isSmallScreen ? "10%": "2%"}} >
+            <Grid container className={"cardsRow"} spacing={5}>
+                {products.map((product: Product, index:number) => (
+                    <Grid item key={index}>
+                        <ProductCard
+                            title={product.title}
+                            description={product.description}
+                            imageUrl={product.imageUrl}
+                        />
+                    </Grid>
+                ))}
             </Grid>
         </Grid>
     )
@@ -103,15 +141,14 @@ const Home: React.FC = () => {
             <Grid container direction="column">
                 <Grid item>
                     <ToolbarComponent/>
-                    <BannerAndTitle/>
+                    <Banner tittleComponent={<TittleSectionOne/>}/>
                 </Grid>
                 <Grid item xs={12} className="sectionTwo" direction="column">
                     <TittleSectionTwo/>
                     <AddCards/>
                 </Grid>
-                <Grid item xs={12} className="sectionTwo" direction="column">
-                    <TittleSectionTwo/>
-                    <AddCards/>
+                <Grid item xs={12} className="sectionThree" direction="column">
+                    <Banner tittleComponent={<TittleSectionThree/>}/>
                 </Grid>
             </Grid>
     );
