@@ -38,7 +38,7 @@ export default function ButtonAppBar() {
                         paddingRight: "6vh",
                         fontFamily: "Alegreya SC, sans-serif"
                     }}>Servizio Clienti</Typography>
-                    <Box sx={{ display: 'flex', alignItems:'flex-end',border:"1px solid red", marginLeft: isSmallScreen ? "35%" : "0"}}>
+                    <Box sx={{ display: 'flex', alignItems:'flex-end', marginLeft: isSmallScreen ? "35%" : "0"}}>
                         <IconWithText icon={<AccessTimeIcon />} text={"Lun/Ven 10-13  15-18"} />
                         <IconWithText icon={<LocalPhoneIcon />} text={"+39 371 375 7628"} />
                         <IconWithText icon={<MailOutlineIcon />} text={"info@agas.eu"} />

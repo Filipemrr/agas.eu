@@ -8,6 +8,8 @@ h2 {
     font-family: Inter, sans-serif;
     font-weight: bold;
 }
+
+
 @media (max-width: 600px) {
     h1.MuiTypography-root {
         font-size: 12vw !important;

@@ -5,53 +5,102 @@ import {Grid, Typography, useMediaQuery} from "@mui/material";
 import "./style.css";
 import ProductCard from "../../components/ProductsCard/ProductCard";
 import BannerAndTittle from "../../components/Banner/BannerAndTittle";
-import React from "react";
+import React, {useEffect, useState} from "react";
 import SponsorCard from "../../components/SponsorCard/SponsorCard";
+import maytagLlogo from "../../images/Maytag-logo.png"
 
 interface Product {
+    type: string;
     title: string;
     description: string;
     imageUrl: string;
+}
+interface AddCardsProps {
+    CardType: string;
 }
 
 
 const products: Product[] = [
     {
+        type: "product",
         title: "Produto 1",
         description: "Descrição do produto 1",
-        imageUrl: "./images/logo.png"
+        imageUrl: "./images/Maytag-logo.png"
     },
     {
+        type: "product",
         title: "Produto 2",
         description: "Descrição do produto 2",
         imageUrl: "./images/logo.png"
     },
     {
+        type: "product",
         title: "Produto 3",
         description: "Descrição do produto 3",
+        imageUrl: "./images/logo.png"
+    },
+    {
+        type: "sponsor",
+        title: "Distributore Autorizzato MYTAG",
+        description: "La Maytag Corporation è un'azienda americana che produce" +
+            " e commercializza elettrodomestici per la casa e commerciali. " +
+            "La Maytag Washing Machine Company è stata fondata nel 1893 dall'imprenditore Frederick Maytag\n" + "\n" +
+            "I prodotti dell'azienda \"Agas\" sono distribuiti con autorizzazione ufficiale da MYTAG. " +
+            "Garantiamo qualità e affidabilità come distributore autorizzato. " +
+            "Scegliete sicurezza ed eccellenza con i prodotti \"Agas\".",
+        imageUrl: "./images/logo.png"
+    },
+    {
+        type: "sponsor",
+        title: "Distributore Autorizzato Whirlpool",
+        description: "La Whirlpool Corporation è un produttore e marketer " +
+            "multinazionale americano di elettrodomestici per la casa.I " +
+            "prodotti dell'azienda 'Agas' sono distribuiti con autorizzazione " +
+            "ufficiale da Whirlpool. Garantiamo qualità e affidabilità come " +
+            "distributore autorizzato. Scegliete sicurezza ed eccellenza con i " +
+            "prodotti 'Agas'.",
+        imageUrl: "./images/logo.png"
+    },
+    {
+        type: "sponsor",
+        title: "Distributore Autorizzato American Dryer corp.",
+        description: "La American Dryer Corporation, o ADC, è la principale soluzione " +
+            "industriale per l'asciugatura. La loro dedizione all'innovazione e al design " +
+            "guidato dagli ingegneri li distingue come pionieri nella tecnologia all'avanguardia " +
+            "del settore.I prodotti dell'azienda 'Agas' sono distribuiti con autorizzazione" +
+            " ufficiale da American Dryer Corp. Garantiamo qualità e affidabilità come " +
+            "distributore autorizzato. Scegliete sicurezza ed eccellenza con i prodotti 'Agas'.,",
         imageUrl: "./images/logo.png"
     }
 ];
 
-const AddCards: React.FC = () => {
+const AddCards: React.FC<AddCardsProps> = ({CardType }) => {
     const isSmallScreen = useMediaQuery('(max-width:600px)');
-    return(
-        <Grid item md={8} xs={12} sx={{paddingTop: isSmallScreen ? "10%": "2%"}} >
+
+    return (
+        <Grid item md={8} xs={12} sx={{ paddingTop: isSmallScreen ? "10%" : "2%" }}>
             <Grid container className={"cardsRow"} spacing={5}>
-                {products.map((product: Product, index:number) => (
+                {products.filter(product => product.type === CardType).map((product: Product, index: number) => (
                     <Grid item key={index}>
-                        <ProductCard
-                            title={product.title}
-                            description={product.description}
-                            imageUrl={product.imageUrl}
-                        />
+                        {CardType === "sponsor" ? (
+                            <SponsorCard
+                                imageUrl={product.imageUrl}
+                                title={product.title}
+                                description={product.description}
+                            />
+                        ) : (
+                            <ProductCard
+                                imageUrl={product.imageUrl}
+                                title={product.title}
+                                description={product.description}
+                            />
+                        )}
                     </Grid>
                 ))}
             </Grid>
         </Grid>
-    )
+    );
 }
-
 const TittleSectionOne: React.FC = () => {
     return(
         <Grid item xs={12}>
@@ -84,44 +133,25 @@ const TittleSectionThree: React.FC = () => {
     )
 }
 
-const AddingSponsorCard: React.FC = () => {
-    const isSmallScreen = useMediaQuery('(max-width:600px)');
-    return(
-        <Grid item md={8} xs={12} sx={{paddingTop: isSmallScreen ? "10%": "2%"}} >
-            <Grid container className={"cardsRow"} spacing={5}>
-                {products.map((product: Product, index:number) => (
-                    <Grid item key={index}>
-                        <SponsorCard
-                            title={product.title}
-                            description={product.description}
-                            imageUrl={product.imageUrl}
-                        />
-                    </Grid>
-                ))}
-            </Grid>
-        </Grid>
-    )
-}
-
-
 const Home: React.FC = () => {
     return (
-            <Grid container direction="column">
-                <Grid item>
-                    <ToolbarComponent/>
-                    <BannerAndTittle tittleComponent={<TittleSectionOne/>}/>
-                </Grid>
-                <Grid item xs={12} className="sectionTwo" direction="column">
-                    <TittleSectionTwo/>
-                    <AddCards/>
-                </Grid>
-                <Grid item xs={12} className="sectionThree" direction="column">
-                    <BannerAndTittle tittleComponent={<TittleSectionThree/>} content={<SponsorCard title={"Sponsor 1"} description={"Description 1"} imageUrl={""}/>}/>
-
-                </Grid>
+        <Grid container direction="column">
+            <Grid item>
+                <ToolbarComponent/>
+                <BannerAndTittle tittleComponent={<TittleSectionOne/>}/>
             </Grid>
+            <Grid item xs={12} className="sectionTwo" direction="column">
+                <TittleSectionTwo/>
+                <AddCards CardType="product"/>
+            </Grid>
+            <Grid item xs={12} className="sectionThree" direction="column">
+                <BannerAndTittle
+                    tittleComponent={<TittleSectionThree/>}
+                    content={<AddCards CardType="sponsor"/>}
+                />
+            </Grid>
+        </Grid>
     );
 }
-
 
 export default Home;

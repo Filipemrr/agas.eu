@@ -13,20 +13,22 @@ interface ProductCardProps {
     description: string;
 }
 
+
+
 const SponsorCard: React.FC<ProductCardProps> = ({ imageUrl, title, description }) => {
     const isXS = useMediaQuery('(max-width:600px)');
     return (
-        <Card sx={{ minWidth: 250, maxWidth: 400, border:"1px solid #2D2F36", marginTop: isXS? "7%":"3%"}}>
+        <Card sx={{ backgroundColor:"#CFCBCB", height:430, maxHeight:700, minWidth: 50, maxWidth: 310, border:"1px solid #2D2F36", marginTop: isXS? "7%":"3%", borderRadius:"18px"}}>
             <CardMedia
-                sx={{ height:240, backgroundColor:"#CFCBCB"}}
+                sx={{ height:80, maxHeight:350, backgroundColor:"#CFCBCB"}}
                 image= {imageUrl}
                 title= {title}
             />
-            <CardContent className={"cardContent"} sx={{ height:260 }}>
-                <Typography gutterBottom variant="h5" component="div" color={"white"}>
+            <CardContent className={"Sponsor-cardContent"} sx={{ height:260 }}>
+                <Typography gutterBottom variant="h6" component="div" color="#042036" sx={{fontFamily: "Alegreya SC, sans-serif", fontWeight:"bold"}}>
                     {title}
                 </Typography>
-                <Typography variant="body2" color={"white"}>
+                <Typography variant="body2" color={"000000"} sx={{fontFamily: "Alegreya SC, sans-serif", fontWeight:"light"}}>
                     {description}
                 </Typography>
             </CardContent>

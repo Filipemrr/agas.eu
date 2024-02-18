@@ -8,7 +8,7 @@ interface BannerProps {
     tittleComponent: React.ReactNode;
     content?: React.ReactNode;
 }
- const Banner: React.FC <BannerProps> = ({ tittleComponent, content }) => {
+const Banner: React.FC <BannerProps> = ({ tittleComponent, content }) => {
     const isSmallScreen = useMediaQuery('(max-width:600px)');
     const [banner, setBanner] = useState(bannerMd);
     useEffect(() => {
