@@ -5,7 +5,7 @@ import bannerXS from "../../images/XSBanner.jpg";
 import logo from "../../images/logo.png";
 
 interface BannerProps {
-    tittleComponent: React.ReactNode;
+    tittleComponent?: React.ReactNode;
     content?: React.ReactNode;
 }
 const Banner: React.FC <BannerProps> = ({ tittleComponent, content }) => {
@@ -26,10 +26,11 @@ const Banner: React.FC <BannerProps> = ({ tittleComponent, content }) => {
 
     return (
         <Grid container justifyContent="center" alignItems="center" style={{
-            height: "90vh",
+            height: isSmallScreen ? "90vh" : "90vh",
             backgroundImage: `url(${banner})`,
             backgroundSize: "cover",
-            backgroundPosition: "center"
+            backgroundPosition: "center",
+            backgroundRepeat: isSmallScreen ? "repeat-y" : "no-repeat"
         }}>
             <Grid item direction={"column"} xs={12} style={{textAlign: "center",display: "flex", alignItems:"center"}}>
                 <img

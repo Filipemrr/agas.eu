@@ -8,6 +8,8 @@ import BannerAndTittle from "../../components/Banner/BannerAndTittle";
 import React, {useEffect, useState} from "react";
 import SponsorCard from "../../components/SponsorCard/SponsorCard";
 import maytagLlogo from "../../images/Maytag-logo.png"
+import FeedbackCard from "../../components/FeedbackCard/FeedbackCard";
+import logo from "../../images/logo.png";
 
 interface Product {
     type: string;
@@ -101,10 +103,22 @@ const AddCards: React.FC<AddCardsProps> = ({CardType }) => {
         </Grid>
     );
 }
+const AddFeedback: React.FC = () => {
+    const isSmallScreen = useMediaQuery('(max-width:600px)');
+    return (
+        <Grid container direction="column" md={5} xs={9} sx={{display: "flex", alignItems:"center", justifyContent: "center", textAlign:"center", paddingTop: isSmallScreen ? "10%" : "2%" }}>
+            <Grid item direction="column" md={5} xs={10}>
+                <Typography color="#3F874E" variant="subtitle1" fontWeight="bold" sx={{ fontSize:"1vw",marginBottom: -1 }}>Patrick. S</Typography>
+                <Typography color="#8D8E90" variant="caption" fontWeight="light">La uso per tutto </Typography>
+            </Grid>
+            <FeedbackCard/>
+        </Grid>
+    )
+}
 const TittleSectionOne: React.FC = () => {
     return(
         <Grid item xs={12}>
-            <Typography variant="h2" style={{ fontFamily: 'Inter, sans-serif', fontWeight: 'bold', textAlign: 'center', color: "#FFFFFF", textShadow: "2px 2px 4px rgba(0, 0, 0, 0.5)" }}>
+            <Typography variant="h2" fontWeight="bold" style={{ fontFamily: 'Inter, sans-serif', fontWeight: 'bold', textAlign: 'center', color: "#FFFFFF", textShadow: "2px 2px 4px rgba(0, 0, 0, 0.5)" }}>
                 Pulizia senza sforzo <br />
                 eleganza senza limiti.
             </Typography>
@@ -125,15 +139,25 @@ const TittleSectionTwo: React.FC = () => {
     )
 }
 const TittleSectionThree: React.FC = () => {
+    const isXS = useMediaQuery('(max-width:600px)');
     return (
         <Grid container className="tittle-Section-Container">
-            <Typography variant="h2" style={{width: '100%',color: "#FFFFFF", textShadow: "2px 2px 4px rgba(0, 0, 0, 0.5)", fontWeight: 'bold'}}>iI nostri partner...</Typography>
+            <Typography variant="h2" style={{paddingTop: isXS ? "10%": "0%", width: '100%',color: "#FFFFFF", textShadow: "2px 2px 4px rgba(0, 0, 0, 0.5)", fontWeight: 'bold'}}>iI nostri partner...</Typography>
             <Typography variant="subtitle1" sx={{ fontFamily: 'Inter, sans-serif', textAlign: 'center', fontWeight: 'light', color: "#FFFFFF", textShadow: "2px 2px 4px rgba(0, 0, 0, 0.5)"}}>Gli articoli più venduti della nostra collezione </Typography>
         </Grid>
     )
 }
-
+const TittleSectionFour: React.FC = () => {
+    return(
+        <Grid item md={1} xs={12}>
+            <Typography variant="h2" style={{ paddingTop: "3%", fontFamily: 'Inter, sans-serif', fontWeight: 'bold', textAlign: 'center', color: "#FFFFFF", textShadow: "2px 2px 4px rgba(0, 0, 0, 0.5)" }}>
+                Opinioni dei clienti
+            </Typography>
+        </Grid>
+    )
+}
 const Home: React.FC = () => {
+    const isXS = useMediaQuery('(max-width:600px)');
     return (
         <Grid container direction="column">
             <Grid item>
@@ -149,8 +173,14 @@ const Home: React.FC = () => {
                     tittleComponent={<TittleSectionThree/>}
                     content={<AddCards CardType="sponsor"/>}
                 />
+                {isXS && <BannerAndTittle/>}
+            </Grid>
+            <Grid item md={7} xs={12} className="sectionFour" direction="column">
+                <TittleSectionFour/>
+                <AddFeedback/>
             </Grid>
         </Grid>
+
     );
 }
 

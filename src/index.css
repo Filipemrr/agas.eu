@@ -10,6 +10,7 @@ h2 {
 }
 
 
+
 @media (max-width: 600px) {
     h1.MuiTypography-root {
         font-size: 12vw !important;
@@ -20,4 +21,5 @@ h2 {
     .MuiTypography-subtitle1 {
         font-size: 3vw !important;
     }
+
 }
