@@ -1,15 +1,13 @@
 import ToolbarComponent from "../../components/toolbar/toolbar";
-
 import {Grid, Typography, useMediaQuery} from "@mui/material";
-
 import "./style.css";
 import ProductCard from "../../components/ProductsCard/ProductCard";
 import BannerAndTittle from "../../components/Banner/BannerAndTittle";
-import React, {useEffect, useState} from "react";
+import React from "react";
 import SponsorCard from "../../components/SponsorCard/SponsorCard";
-import maytagLlogo from "../../images/Maytag-logo.png"
 import FeedbackCard from "../../components/FeedbackCard/FeedbackCard";
-import logo from "../../images/logo.png";
+import Navbar from "../../components/navbar/toolbar";
+
 
 interface Product {
     type: string;
@@ -66,12 +64,7 @@ const products: Product[] = [
     {
         type: "sponsor",
         title: "Distributore Autorizzato American Dryer corp.",
-        description: "La American Dryer Corporation, o ADC, è la principale soluzione " +
-            "industriale per l'asciugatura. La loro dedizione all'innovazione e al design " +
-            "guidato dagli ingegneri li distingue come pionieri nella tecnologia all'avanguardia " +
-            "del settore.I prodotti dell'azienda 'Agas' sono distribuiti con autorizzazione" +
-            " ufficiale da American Dryer Corp. Garantiamo qualità e affidabilità come " +
-            "distributore autorizzato. Scegliete sicurezza ed eccellenza con i prodotti 'Agas'.,",
+        description: "La American Dryer Corporation, o ADC, è leader nell'asciugatura industriale grazie alla loro innovazione e design guidato dagli ingegneri. I prodotti 'Agas' sono distribuiti con autorizzazione ufficiale da American Dryer Corp, garantendo qualità e affidabilità come distributore autorizzato. Scegliete sicurezza ed eccellenza con i prodotti 'Agas'.",
         imageUrl: "./images/logo.png"
     }
 ];
@@ -81,7 +74,7 @@ const AddCards: React.FC<AddCardsProps> = ({CardType }) => {
 
     return (
         <Grid item md={8} xs={12} sx={{ paddingTop: isSmallScreen ? "10%" : "2%" }}>
-            <Grid container className={"cardsRow"} spacing={5}>
+            <Grid container className={"cardsRow"} spacing={3}>
                 {products.filter(product => product.type === CardType).map((product: Product, index: number) => (
                     <Grid item key={index}>
                         {CardType === "sponsor" ? (
@@ -156,12 +149,14 @@ const TittleSectionFour: React.FC = () => {
         </Grid>
     )
 }
+
 const Home: React.FC = () => {
     const isXS = useMediaQuery('(max-width:600px)');
     return (
         <Grid container direction="column">
             <Grid item>
                 <ToolbarComponent/>
+                <Navbar/>
                 <BannerAndTittle tittleComponent={<TittleSectionOne/>}/>
             </Grid>
             <Grid item xs={12} className="sectionTwo" direction="column">
