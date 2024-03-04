@@ -1,51 +1,50 @@
-import * as React from 'react';
+import React from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
-import LocalPhoneIcon from '@mui/icons-material/LocalPhone';
-import AccessTimeIcon from '@mui/icons-material/AccessTime';
-import MailOutlineIcon from '@mui/icons-material/MailOutline';
-import {ReactNode} from "react";
-import {useMediaQuery} from "@mui/material";
-import {Settings} from "@mui/icons-material";
 import Button from "@mui/joy/Button";
-import IconButton from "@mui/joy/IconButton";
 import {ButtonGroup} from "@mui/joy";
-interface IconWithTextProps {
-    icon: ReactNode;
-    text: string;
-}
-const IconWithText: React.FC<IconWithTextProps> = ({icon, text}) => {
-    const isSmallScreen = useMediaQuery('(max-width:600px)');
-    return (
-        <Box sx={{ display: 'flex', alignItems: 'center', marginRight: '5px'}}>
-            {icon}
-            {!isSmallScreen && (
-                <Typography sx={{fontSize: "13px" }}>{text}</Typography>
-            )}
-        </Box>
+import { useNavigate } from "react-router-dom"
 
-    );
-}
+const styles = {
+    customButton: {
+        border: 'none',
+        fontWeight: 400,
+        fontFamily: 'Inter, sans-serif',
+        color: 'white',
+        borderBottom: '2px solid transparent',
+        '&:hover': {
+            color: 'white',
+            backgroundColor: 'transparent',
+            borderBottom: '2px solid #C4ECB2',
+        },
+        '&:not(:first-of-type)': {
+            marginLeft: '0.5rem',
+        },
+    },
+    buttonGroup: {
+        border: 'none',
+        backgroundColor: 'transparent',
+        '--ButtonGroup-separatorSize': '0px',
+        '--ButtonGroup-radius:': '0px'
+    }
+};
 
 export default function Navbar() {
-    const isSmallScreen = useMediaQuery('(max-width:600px)');
+    const navigate = useNavigate();
+    const handleClick = (route: string) => () => {
+        navigate(route);
+    };
     return (
         <Box sx={{ position: 'absolute', width: '100%', zIndex: 1 }}>
             <AppBar position="static" sx={{ backgroundColor: 'transparent' }} elevation={0}>
                 <Toolbar sx={{ justifyContent: 'flex-end' }}>
-                    <Box sx={{ display: 'flex', alignItems:'end', marginLeft: isSmallScreen ? "35%" : "0"}}>
-                        <ButtonGroup spacing="0.5rem" aria-label="spacing button group">
-                            <Button sx={{ fontWeight: 'Lighter', fontFamily: 'Inter, sans-serif', color: 'white', '&:hover': {backgroundColor: 'green'} }}>Home</Button>
-                            <Button sx={{ fontWeight: 'Lighter', fontFamily: 'Inter, sans-serif', color: 'white', '&:hover': {color: 'green'} }}>Prodotti</Button>
-                            <Button sx={{ fontWeight: 'Lighter', fontFamily: 'Inter, sans-serif', color: 'white', '&:hover': {color: 'green'} }}>Chi Siamo</Button>
-                            <Button sx={{ fontWeight: 'Lighter', fontFamily: 'Inter, sans-serif', color: 'white', '&:hover': {color: 'green'} }}>Contati</Button>
-                            <IconButton>
-                                <Settings />
-                            </IconButton>
-                        </ButtonGroup>
-                    </Box>
+                    <ButtonGroup sx={{ ...styles.buttonGroup }} aria-label="button group">
+                        <Button sx={{ ...styles.customButton }} onClick={handleClick('/home')}>Home</Button>
+                        <Button sx={{ ...styles.customButton }} onClick={handleClick('/home')}>Prodotti</Button>
+                        <Button sx={{ ...styles.customButton }} onClick={handleClick('/home')}>Chi Siamo</Button>
+                        <Button sx={{ ...styles.customButton }} onClick={handleClick('/contatti')}>Contati</Button>
+                    </ButtonGroup>
                 </Toolbar>
             </AppBar>
         </Box>

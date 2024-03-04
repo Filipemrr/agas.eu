@@ -9,6 +9,7 @@ import Navbar from "../../components/navbar/toolbar";
 import ToolbarComponent from "../../components/toolbar/toolbar";
 import Divider from '@mui/material/Divider';
 import "./style.css";
+import InfoBanner from "../../components/InfoBanner/InfoBanner";
 
 
 const TitleSectionOne: React.FC = () => {
@@ -24,7 +25,7 @@ const TitleSectionOne: React.FC = () => {
 const TitleSectionTwo: React.FC = () => {
     return (
         <Grid item xs={12}>
-    
+
         </Grid>
     );
 }
@@ -32,48 +33,49 @@ const TitleSectionTwo: React.FC = () => {
 const ContactCard: React.FC = () => {
     return (
         <Grid container className="card-container">
-            <Card 
-            className="card" 
-            sx={{ 
-                borderRadius: 4, 
-                height: 350
+            <Card
+                className="card"
+                sx={{
+                    borderRadius: 7,
+                    height: 350,
+                    backgroundColor: "#15171F"
                 }}
             >
-                    <CardContent 
+                <CardContent
                     sx={{
                         padding: 0,
                         display: 'flex',
                         flexDirection: 'column',
-                        justifyContent: 'center'
-                        }}>
-                        <Grid container spacing={2} justifyContent="flex-start">
-                            <Grid item xs={12} md={4}>
-                            </Grid>
-                            <Grid item>
-                                <Divider orientation="vertical" className="divider" />
-                            </Grid>
-                            <Grid item xs={12} md={7}>
-                                <Typography variant="h5" component="div">
-                                    aGAS by V&F
-                                </Typography>
-                                <Typography variant="body1" component="div">
-                                    Sede Operative: Vicenza
-                                </Typography>
-                                <Typography variant="body1" component="div">
-                                    Tel: +39
-                                </Typography>
-                                <Typography variant="body1" component="div">
-                                    Email: info@vastfast.it
-                                </Typography>
-                                <Typography variant="body1" component="div">
-                                    P.IVA 034
-                                </Typography>
-                                <Typography variant="body1" component="div">
-                                    CCIAA di Vicenza
-                                </Typography>
-                            </Grid>
+                        justifyContent: 'center',
+                        color: "white",
+                        borderLeft: "1px solid #2EA360",
+                        backgroundColor: "white"
+                    }}>
+                    <Grid container spacing={2} justifyContent="flex-start">
+                        <Grid item xs={12} md={4}>
                         </Grid>
-                    </CardContent>
+                        <Grid item xs={12} md={7}>
+                            <Typography variant="h5" component="div">
+                                aGAS by V&F
+                            </Typography>
+                            <Typography variant="body1" component="div">
+                                Sede Operative: Vicenza
+                            </Typography>
+                            <Typography variant="body1" component="div">
+                                Tel: +39
+                            </Typography>
+                            <Typography variant="body1" component="div">
+                                Email: info@vastfast.it
+                            </Typography>
+                            <Typography variant="body1" component="div">
+                                P.IVA 034
+                            </Typography>
+                            <Typography variant="body1" component="div">
+                                CCIAA di Vicenza
+                            </Typography>
+                        </Grid>
+                    </Grid>
+                </CardContent>
             </Card>
         </Grid>
     );
@@ -83,9 +85,9 @@ const Contatti: React.FC = () => {
     return (
         <Grid container direction="column">
             <Grid item>
-                    <ToolbarComponent/>
-                    <Navbar />
-                    <BannerAndTittle tittleComponent={<TitleSectionOne/>}/>
+                <ToolbarComponent/>
+                <Navbar />
+                <InfoBanner tittleComponent={<TitleSectionOne/>}/>
             </Grid>
             <Grid item xs={12} className="sectionTwo" direction="column">
                 <TitleSectionTwo/>
