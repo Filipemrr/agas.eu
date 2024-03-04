@@ -1,0 +1,28 @@
+/* MyCardStyles.css */
+.card-container {
+    height: 60vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .card-container .MuiCardContent-root:last-child {
+    padding-bottom: 0;
+}
+  
+  .card {
+    width: 1000px;
+    background-color: black;
+    color: white;
+  }
+
+  .divider {
+    height: 350px; /* Ensure the green line extends the full height of the card */
+    width: 5px;
+    background-color: green;
+  }
+  
+  .logo {
+    width: 100%; /* Adjust the width of the logo as needed */
+  }
+  
