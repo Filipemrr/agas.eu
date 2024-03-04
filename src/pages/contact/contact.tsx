@@ -1,5 +1,6 @@
 import * as React from 'react';
 import Card from '@mui/material/Card'
+import Box from '@mui/material/Box';
 import CardContent from '@mui/material/CardContent'
 import CardMedia from '@mui/material/CardMedia'
 import { CardActionArea } from '@mui/material'
@@ -10,6 +11,8 @@ import ToolbarComponent from "../../components/toolbar/toolbar";
 import Divider from '@mui/material/Divider';
 import "./style.css";
 import InfoBanner from "../../components/InfoBanner/InfoBanner";
+import logo from "../../images/logo.png";
+
 
 
 const TitleSectionOne: React.FC = () => {
@@ -33,50 +36,52 @@ const TitleSectionTwo: React.FC = () => {
 const ContactCard: React.FC = () => {
     return (
         <Grid container className="card-container">
-            <Card
-                className="card"
-                sx={{
-                    borderRadius: 7,
-                    height: 350,
-                    backgroundColor: "#15171F"
-                }}
-            >
-                <CardContent
-                    sx={{
-                        padding: 0,
-                        display: 'flex',
-                        flexDirection: 'column',
-                        justifyContent: 'center',
-                        color: "white",
-                        borderLeft: "1px solid #2EA360",
-                        backgroundColor: "white"
-                    }}>
-                    <Grid container spacing={2} justifyContent="flex-start">
-                        <Grid item xs={12} md={4}>
-                        </Grid>
-                        <Grid item xs={12} md={7}>
-                            <Typography variant="h5" component="div">
-                                aGAS by V&F
-                            </Typography>
-                            <Typography variant="body1" component="div">
-                                Sede Operative: Vicenza
-                            </Typography>
-                            <Typography variant="body1" component="div">
-                                Tel: +39
-                            </Typography>
-                            <Typography variant="body1" component="div">
-                                Email: info@vastfast.it
-                            </Typography>
-                            <Typography variant="body1" component="div">
-                                P.IVA 034
-                            </Typography>
-                            <Typography variant="body1" component="div">
-                                CCIAA di Vicenza
-                            </Typography>
-                        </Grid>
-                    </Grid>
-                </CardContent>
-            </Card>
+            <Card sx={{ 
+                display: 'flex', 
+                width: '1000px',
+                height: '350px',
+                margin: 'auto',
+                borderRadius: '20px',
+                backgroundColor: '#15171F'
+                }}>
+                <Box sx={{ width: "350px", height: "100%", borderRight: "5px solid #2EA360", display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                    <CardMedia
+                            component="img"
+                            sx={{ 
+                                maxWidth: "220px", // or specific px value
+                                maxHeight: "300px", // Adjust this value to make the image smaller
+                                objectFit: 'contain' // Keeps aspect ratio and fits the content within the bounds
+                            }}
+                            image={logo}
+                            alt="Live from space album cover"
+                        />
+                </Box>
+                <Box sx={{ display: 'flex', flexDirection: 'column', flexGrow: 1, justifyContent: 'center', m: 2 }}>
+                    <CardContent sx={{ color: 'white', display: 'flex', flexDirection: 'column', gap: '20px' }}>
+                        <Typography variant="body2" sx={{ fontWeight: 'bold' }}>
+                        aGAS © by vf srl
+                        </Typography>
+                        <Typography variant="body2">
+                        Sede Operativa: CCIAA di Vicenza
+                        </Typography>
+                        <Typography variant="body2">
+                        Tel.: +393713757628
+                        </Typography>
+                        <Typography variant="body2">
+                        Email: info@vastfast.it
+                        </Typography>
+                        <Typography variant="body2">
+                        P.IVA 03418740241
+                        </Typography>
+                        <Typography variant="body2">
+                        CCIAA di Vicenza
+                        </Typography>
+                    </CardContent>
+                    <Box sx={{ display: 'flex', alignItems: 'center', pl: 1, pb: 1 }}>
+                    </Box>
+                </Box>
+                
+            </Card> 
         </Grid>
     );
 }

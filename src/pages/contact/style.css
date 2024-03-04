@@ -5,17 +5,3 @@
     justify-content: center;
     align-items: center;
   }
-
-  .card-container .MuiCardContent-root:last-child {
-    padding-bottom: 0;
-}
-  
-  .card {
-    width: 1000px;
-    background-color: black;
-  }
-  
-  .logo {
-    width: 100%; /* Adjust the width of the logo as needed */
-  }
-  
