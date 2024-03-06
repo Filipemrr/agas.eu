@@ -3,14 +3,12 @@ import Card from '@mui/material/Card'
 import Box from '@mui/material/Box';
 import CardContent from '@mui/material/CardContent'
 import CardMedia from '@mui/material/CardMedia'
-import { CardActionArea } from '@mui/material'
 import {Grid, Typography} from "@mui/material";
-import BannerAndTittle from "../../components/Banner/BannerAndTittle";
 import Navbar from "../../components/navbar/toolbar";
 import ToolbarComponent from "../../components/toolbar/toolbar";
-import Divider from '@mui/material/Divider';
 import "./style.css";
 import InfoBanner from "../../components/InfoBanner/InfoBanner";
+import FooterPage from "../../components/Footer/FooterPage";
 import logo from "../../images/logo.png";
 
 
@@ -97,6 +95,9 @@ const Contatti: React.FC = () => {
             <Grid item xs={12} className="sectionTwo" direction="column">
                 <TitleSectionTwo/>
                 <ContactCard />
+            </Grid>
+            <Grid item>
+                <FooterPage/>
             </Grid>
         </Grid>
     );
