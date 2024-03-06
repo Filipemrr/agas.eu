@@ -5,7 +5,8 @@ import Home from './pages/home/home';
 import AboutUs from "./pages/aboutUs/AboutUs";
 import Products from "./pages/products/products"
 import Contatti from "./pages/contact/contact"
-
+import { register } from 'swiper/element/bundle';
+register();
 function App(){
   return (
       <Router>

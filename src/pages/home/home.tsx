@@ -7,6 +7,11 @@ import React from "react";
 import SponsorCard from "../../components/SponsorCard/SponsorCard";
 import FeedbackCard from "../../components/FeedbackCard/FeedbackCard";
 import Navbar from "../../components/navbar/toolbar";
+import Footer from "../../components/Footer/FooterPage"
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css'; // for Swiper's basic CSS
+import 'swiper/css/navigation'; // if you're using the navigation module
+import 'swiper/css/pagination'; // if you're using the pagination module
 
 
 interface Product {
@@ -69,6 +74,8 @@ const products: Product[] = [
     }
 ];
 
+
+
 const AddCards: React.FC<AddCardsProps> = ({CardType }) => {
     const isSmallScreen = useMediaQuery('(max-width:600px)');
 
@@ -96,22 +103,34 @@ const AddCards: React.FC<AddCardsProps> = ({CardType }) => {
         </Grid>
     );
 }
+
 const AddFeedback: React.FC = () => {
     const isSmallScreen = useMediaQuery('(max-width:600px)');
     return (
-        <Grid container direction="column" md={5} xs={9} sx={{display: "flex", alignItems:"center", justifyContent: "center", textAlign:"center", paddingTop: isSmallScreen ? "10%" : "2%" }}>
-            <Grid item direction="column" md={5} xs={10}>
-                <Typography color="#3F874E" variant="subtitle1" fontWeight="bold" sx={{ fontSize:"1vw",marginBottom: -1 }}>Patrick. S</Typography>
-                <Typography color="#8D8E90" variant="caption" fontWeight="light">La uso per tutto </Typography>
+        <Grid container direction="column"
+              sx={{paddingTop: isSmallScreen ? "10%" : "2%", display: "flex", alignItems: "center"}} md={12} xs={9}>
+            <Grid item xs={10}>
+                <Typography color="#3F874E" variant="subtitle1" fontWeight="bold"
+                            sx={{fontSize: isSmallScreen ? "4.5vw" : "1vw", marginBottom: -1}}>
+                    Patrick. S
+                </Typography>
+                <Typography color="#8D8E90" variant="caption" fontWeight="light">
+                    La uso per tutto
+                </Typography>
             </Grid>
-            <FeedbackCard/>
         </Grid>
-    )
+    );
+
 }
 const TittleSectionOne: React.FC = () => {
-    return(
+    return (
         <Grid item xs={12}>
-            <Typography variant="h2" fontWeight="bold" style={{ fontFamily: 'Inter, sans-serif', fontWeight: 'bold', textAlign: 'center', color: "#FFFFFF", textShadow: "2px 2px 4px rgba(0, 0, 0, 0.5)" }}>
+            <Typography variant="h2" fontWeight="bold" style={{
+                fontFamily: 'Inter, sans-serif',
+                fontWeight: 'bold',
+                textAlign: 'center',
+                color: "#FFFFFF",
+                textShadow: "2px 2px 4px rgba(0, 0, 0, 0.5)" }}>
                 Pulizia senza sforzo <br />
                 eleganza senza limiti.
             </Typography>
@@ -170,12 +189,12 @@ const Home: React.FC = () => {
                 />
                 {isXS && <BannerAndTittle/>}
             </Grid>
-            <Grid item md={7} xs={12} className="sectionFour" direction="column">
+            <Grid item md={8} xs={12} className="sectionFour" direction="column">
                 <TittleSectionFour/>
                 <AddFeedback/>
             </Grid>
+            <Footer/>
         </Grid>
-
     );
 }
 

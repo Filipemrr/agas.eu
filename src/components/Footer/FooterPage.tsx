@@ -5,12 +5,10 @@ import logo from "../../images/logo.png";
 
 const FooterPage: React.FC = () => {
   return (
-    <Box component="footer" sx={{ height: '300px', bgcolor: '#15171F', color: 'white', padding: '20px', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '20px', width: '100%' }}>
-      {/* Specific Box for the image and Typography that needs to be moved down */}
+    <Box component="footer" sx={{ height: '300px', bgcolor: '#15171F', color: 'white', paddingTop: '4%', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '20px', width: '100%' }}>
       <Box sx={{ position: 'absolute', marginLeft: '50%', display: 'flex', justifyContent: 'flex-start', width: '100%' }}>
-        {/* This Box only wraps the image and its directly related text */}
         <Box sx={{ textAlign: 'center', mr: 'auto', mt: '10px' }}> {/* Margin top applied here */}
-          <img src="https://agas.eu/img/frontend/phone.png" alt="Description" style={{ width: '50px', border: '2px solid white', borderRadius: '50px', display: 'block', padding: '5%', margin: '0 auto', marginBottom: '10px' }} />
+          <img src="https://agas.eu/img/frontend/phone.png" alt="Description" style={{ width: '50px', border: '2px solid white', borderRadius: '50px', display: 'block', margin: '0 auto', marginBottom: '10px' }} />
           <Typography variant="body2">Email: info@agas.eu</Typography>
         </Box>
       </Box>

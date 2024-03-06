@@ -31,7 +31,7 @@ export default function ButtonAppBar() {
     const isSmallScreen = useMediaQuery('(max-width:600px)');
     return (
         <Box>
-            <AppBar position="static" sx={{ backgroundColor: '#15171F' }}>
+            <AppBar position="static" sx={{ backgroundColor: '#15171F', borderBottom: "2px solid green" }}>
                 <Toolbar>
                     <Typography sx={{
                         fontSize: "15px",

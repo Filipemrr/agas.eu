@@ -78,7 +78,6 @@ const ContactCard: React.FC = () => {
                     <Box sx={{ display: 'flex', alignItems: 'center', pl: 1, pb: 1 }}>
                     </Box>
                 </Box>
-                
             </Card> 
         </Grid>
     );
@@ -96,9 +95,7 @@ const Contatti: React.FC = () => {
                 <TitleSectionTwo/>
                 <ContactCard />
             </Grid>
-            <Grid item>
                 <FooterPage/>
-            </Grid>
         </Grid>
     );
 }
