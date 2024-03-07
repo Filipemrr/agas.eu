@@ -3,6 +3,7 @@ import AspectRatio from '@mui/joy/AspectRatio';
 import Box from '@mui/joy/Box';
 import Container from '@mui/joy/Container';
 import { typographyClasses } from '@mui/joy/Typography';
+import ReactPlayer from 'react-player/youtube';
 
 export default function TwoSidedLayout({children, reversed,}: React.PropsWithChildren<{ reversed?: boolean }>) {
     return (
@@ -46,26 +47,28 @@ export default function TwoSidedLayout({children, reversed,}: React.PropsWithChi
                 {children}
             </Box>
             <AspectRatio
-                ratio={600 / 520}
+                ratio={16 / 9}
                 variant="outlined"
-                maxHeight={300}
                 sx={(theme) => ({
                     minWidth: 300,
                     alignSelf: 'stretch',
                     [theme.breakpoints.up(834)]: {
                         alignSelf: 'initial',
                         flexGrow: 1,
-                        '--AspectRatio-maxHeight': '520px',
-                        '--AspectRatio-minHeight': '400px',
+                        '--AspectRatio-maxHeight': '540px',
+                        '--AspectRatio-minHeight': '385px',
                     },
                     borderRadius: 'sm',
                     bgcolor: 'background.level2',
                     flexBasis: '50%',
                 })}
             >
-                <img
-                    src="https://images.unsplash.com/photo-1483791424735-e9ad0209eea2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80"
-                    alt=""
+                <ReactPlayer url={`https://www.youtube.com/watch?v=4fFix5dUVgY&t=24s`}
+                             width='100%'
+                             height='100%'
+                             controls={false}
+                             playing
+                             loop
                 />
             </AspectRatio>
         </Container>

@@ -23,17 +23,9 @@ const TitleSectionOne: React.FC = () => {
     );
 }
 
-const TitleSectionTwo: React.FC = () => {
-    return (
-        <Grid item xs={12}>
-
-        </Grid>
-    );
-}
-
 const ContactCard: React.FC = () => {
     return (
-        <Grid container className="card-container">
+        <Grid container sx={{ padding: '100px'}}>
             <Card sx={{ 
                 display: 'flex', 
                 width: '1000px',
@@ -91,8 +83,7 @@ const Contatti: React.FC = () => {
                 <Navbar />
                 <InfoBanner tittleComponent={<TitleSectionOne/>}/>
             </Grid>
-            <Grid item xs={12} className="sectionTwo" direction="column">
-                <TitleSectionTwo/>
+            <Grid item xs={12} sx={{background: '#D4D4D4'}} direction="column">
                 <ContactCard />
             </Grid>
                 <FooterPage/>

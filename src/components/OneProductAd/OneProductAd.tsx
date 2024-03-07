@@ -1,26 +1,26 @@
 import * as React from 'react';
 import Box from '@mui/joy/Box';
 import Button from '@mui/joy/Button';
-import Input from '@mui/joy/Input';
 import Typography from '@mui/joy/Typography';
 import ArrowForward from '@mui/icons-material/ArrowForward';
 import Star from '@mui/icons-material/Star';
 import TwoSidedLayout from './TwoSidesLayoult';
 
-export default function HeroLeft02() {
+export default function oneProductAd() {
     return (
         <TwoSidedLayout>
-            <Typography color="primary" fontSize="lg" fontWeight="lg">
+            <Typography color="primary" fontSize="lg" fontWeight="lg" sx={{color: "#3CA062"}}>
         The power to do more
     </Typography>
     <Typography
         level="h1"
     fontWeight="xl"
     fontSize="clamp(1.875rem, 1.3636rem + 2.1818vw, 3rem)"
+        sx={{color: "white"}}
         >
         A large headlinerer about our product features & services
     </Typography>
-    <Typography fontSize="lg" textColor="text.secondary" lineHeight="lg">
+    <Typography fontSize="lg" textColor="white" lineHeight="lg">
         A descriptive secondary text placeholder. Use it to explain your business
     offer better.
     </Typography>
@@ -33,8 +33,7 @@ export default function HeroLeft02() {
             '& > *': { flex: 'auto' },
     }}
 >
-    <Input size="lg" placeholder="Sign in with email" />
-    <Button size="lg" endDecorator={<ArrowForward/>}>
+    <Button size="lg" sx={{color: "white", backgroundColor: "#3CA062"}} endDecorator={<ArrowForward/>}>
     Get Started
     </Button>
     </Box>
@@ -67,20 +66,20 @@ export default function HeroLeft02() {
     <div>
         <Typography
             fontSize="xl4"
-    fontWeight="lg"
-    endDecorator={<Star sx={{ color: 'warning.300' }} />}
+    fontWeight="lg" textColor="white"
+    endDecorator={<Star sx={{ color: '#ece443' }} />}
     >
     4.9
     </Typography>
-    <Typography textColor="text.secondary">
+    <Typography textColor="white">
         Over <b>5k</b> positive <br /> customer reviews.
     </Typography>
     </div>
     <div>
-    <Typography fontSize="xl4" fontWeight="lg">
+    <Typography textColor="white" fontSize="xl4" fontWeight="lg">
         2M
     </Typography>
-    <Typography textColor="text.secondary">
+    <Typography textColor="white">
         Global <br /> Transactions.
         </Typography>
         </div>
@@ -94,7 +93,6 @@ export default function HeroLeft02() {
             transform: 'translateX(-50%)',
     }}
 >
-    HeroLeft02
     </Typography>
     </TwoSidedLayout>
 );
