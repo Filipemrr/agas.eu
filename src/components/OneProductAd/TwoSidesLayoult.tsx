@@ -67,7 +67,6 @@ export default function TwoSidedLayout({children, reversed,}: React.PropsWithChi
                              width='100%'
                              height='100%'
                              controls={false}
-                             playing
                              loop
                 />
             </AspectRatio>

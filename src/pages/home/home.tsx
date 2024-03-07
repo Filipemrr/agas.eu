@@ -111,7 +111,7 @@ const AddFeedback: React.FC = () => {
                 <Typography color="#8D8E90" variant="caption" fontWeight="light">
                     La uso per tutto
                 </Typography>
-             <Grid item xs={12} sx={{width: isSmallScreen ? "30vh": "100vh", height:"100%", paddingTop: isSmallScreen ? "5%" : "2%" }}>
+             <Grid item xs={12} sx={{width: isSmallScreen ? "50vh": "100vh", height:"100%", paddingTop: isSmallScreen ? "5%" : "2%" }}>
                  <FeedbackCardSwiper/>
              </Grid>
             </Grid>

@@ -24,13 +24,13 @@ const FeedbackCardSwiper = () => {
         { id: 6, title: "Tittle 6", content: "Content 3" }
     ];
     return (
-        <div className="mySwiper">
+        <div>
             <Swiper
                 slidesPerView={1}
                 navigation
             >
             {CardData.map((card) => (
-                <SwiperSlide key={card.id} style={{ width: '100%', height: '100%' }}>
+                <SwiperSlide key={card.id} style={{ width: '100%', height: '300px' }}>
                     <FeedbackCard title={card.title} content={card.content} />
                 </SwiperSlide>
             ))}

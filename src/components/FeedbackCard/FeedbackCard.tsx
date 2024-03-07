@@ -22,7 +22,6 @@ export default function FeedbackCard({ title, content }: props) {
                 alignItems: "center",
                 justifyContent: "center",
                 backgroundColor: "#e0dddd",
-                marginTop: "3%",
                 borderRadius:"0px",
                 borderBottom: "4px solid #3CA062"
             }}
