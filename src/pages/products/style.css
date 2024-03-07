@@ -1,0 +1,8 @@
+.sectionOne {
+    background: #2D2F36;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    padding: 5%;
+}

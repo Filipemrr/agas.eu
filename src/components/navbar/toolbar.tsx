@@ -41,8 +41,8 @@ export default function Navbar() {
                 <Toolbar sx={{ justifyContent: 'flex-end' }}>
                     <ButtonGroup sx={{ ...styles.buttonGroup }} aria-label="button group">
                         <Button  sx={{ ...styles.customButton }} onClick={handleClick('/home')}>Home</Button>
-                        <Button  sx={{ ...styles.customButton }} onClick={handleClick('/home')}>Prodotti</Button>
-                        <Button  sx={{ ...styles.customButton }} onClick={handleClick('/chiSiamo')}>Chi Siamo</Button>
+                        <Button  sx={{ ...styles.customButton }} onClick={handleClick('/NostriProdotti')}>Prodotti</Button>
+                        <Button  sx={{ ...styles.customButton }} onClick={handleClick('/chisiamo')}>Chi Siamo</Button>
                         <Button  sx={{ ...styles.customButton }} onClick={handleClick('/contatti')}>Contati</Button>
                     </ButtonGroup>
                 </Toolbar>
