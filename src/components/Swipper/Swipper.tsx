@@ -7,6 +7,7 @@ import 'swiper/css/a11y';
 import FeedbackCard from '../FeedbackCard/FeedbackCard';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import './style.css'
+import {useMediaQuery} from "@mui/material";
 
 interface FeedbackCardProps {
     id: number;
@@ -23,6 +24,7 @@ const FeedbackCardSwiper = () => {
         { id: 5, title: "Tittle 5", content: "Content 3" },
         { id: 6, title: "Tittle 6", content: "Content 3" }
     ];
+    const isSmallScreen = useMediaQuery('(max-width:600px)');
     return (
         <div>
             <Swiper
