@@ -2,20 +2,22 @@ import * as React from 'react';
 import Avatar from '@mui/joy/Avatar';
 import AvatarGroup from '@mui/joy/AvatarGroup';
 import Box from '@mui/joy/Box';
-import Button from '@mui/joy/Button';
 import Card from '@mui/joy/Card';
 import CardContent from '@mui/joy/CardContent';
-import CardActions from '@mui/joy/CardActions';
-import IconButton from '@mui/joy/IconButton';
 import Typography from '@mui/joy/Typography';
-import FavoriteBorder from '@mui/icons-material/FavoriteBorder';
 
-export default function FeedbackCard() {
+interface props {
+    title: string,
+    content: string
+}
+
+export default function FeedbackCard({ title, content }: props) {
     return (
         <Card
             variant="outlined"
             sx={{
                 width: '100%',
+                height: "100%",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
@@ -41,10 +43,9 @@ export default function FeedbackCard() {
                 </AvatarGroup>
             </Box>
             <CardContent>
-                <Typography level="title-lg">La uso per tutto</Typography>
+                <Typography level="title-lg">{title}</Typography>
                 <Typography level="body-sm">
-                    We are a community of developers prepping for coding interviews,
-                    participate, chat with others and get better at interviewing.
+                    {content}
                 </Typography>
             </CardContent>
         </Card>

@@ -5,15 +5,10 @@ import ProductCard from "../../components/ProductsCard/ProductCard";
 import BannerAndTittle from "../../components/Banner/BannerAndTittle";
 import React from "react";
 import SponsorCard from "../../components/SponsorCard/SponsorCard";
-import FeedbackCard from "../../components/FeedbackCard/FeedbackCard";
 import Navbar from "../../components/navbar/toolbar";
 import Footer from "../../components/Footer/FooterPage"
-import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/css'; // for Swiper's basic CSS
-import 'swiper/css/navigation'; // if you're using the navigation module
-import 'swiper/css/pagination'; // if you're using the pagination module
-
-
+import FeedbackCardSwiper from "../../components/Swipper/Swipper";
+import HeroLeft02 from "../../components/OneProductAd/OneProductAd";
 interface Product {
     type: string;
     title: string;
@@ -78,7 +73,6 @@ const products: Product[] = [
 
 const AddCards: React.FC<AddCardsProps> = ({CardType }) => {
     const isSmallScreen = useMediaQuery('(max-width:600px)');
-
     return (
         <Grid item md={8} xs={12} sx={{ paddingTop: isSmallScreen ? "10%" : "2%" }}>
             <Grid container className={"cardsRow"} spacing={3}>
@@ -108,19 +102,21 @@ const AddFeedback: React.FC = () => {
     const isSmallScreen = useMediaQuery('(max-width:600px)');
     return (
         <Grid container direction="column"
-              sx={{paddingTop: isSmallScreen ? "10%" : "2%", display: "flex", alignItems: "center"}} md={12} xs={9}>
+              sx={{paddingTop: isSmallScreen ? "5%" : "2%", display: "flex", alignItems: "center"}} md={12} xs={9}>
             <Grid item xs={10}>
                 <Typography color="#3F874E" variant="subtitle1" fontWeight="bold"
-                            sx={{fontSize: isSmallScreen ? "4.5vw" : "1vw", marginBottom: -1}}>
+                            sx={{fontSize: isSmallScreen ? "8.5vw" : "1vw", marginBottom: -1}}>
                     Patrick. S
                 </Typography>
                 <Typography color="#8D8E90" variant="caption" fontWeight="light">
                     La uso per tutto
                 </Typography>
+             <Grid item xs={12} sx={{width: isSmallScreen ? "30vh": "100vh", height:"100%", paddingTop: isSmallScreen ? "5%" : "2%" }}>
+                 <FeedbackCardSwiper/>
+             </Grid>
             </Grid>
         </Grid>
     );
-
 }
 const TittleSectionOne: React.FC = () => {
     return (
@@ -192,6 +188,9 @@ const Home: React.FC = () => {
             <Grid item md={8} xs={12} className="sectionFour" direction="column">
                 <TittleSectionFour/>
                 <AddFeedback/>
+            </Grid>
+            <Grid item md={8} xs={12} className="sectionFour" direction="column">
+                <HeroLeft02/>
             </Grid>
             <Footer/>
         </Grid>

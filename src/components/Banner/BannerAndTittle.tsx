@@ -32,12 +32,12 @@ const Banner: React.FC <BannerProps> = ({ tittleComponent, content }) => {
             backgroundPosition: "center",
             backgroundRepeat: isSmallScreen ? "repeat-y" : "no-repeat"
         }}>
-            <Grid item direction={"column"} xs={12} style={{textAlign: "center",display: "flex", alignItems:"center"}}>
+            <Grid item direction={"column"} xs={12} style={{textAlign: "center",display: "flex", alignItems:"center", justifyContent: "center"}}>
                 <img
                     src={logo}
                     alt="logo"
                     className="logo-img"
-                    style={{marginTop: isSmallScreen ? "13.5%" : "4.5%", marginLeft: "1%"}}
+                    style={{marginTop: isSmallScreen ? "0" : "4.5%"}}
                 />
                 {tittleComponent}
                 {content && content}
