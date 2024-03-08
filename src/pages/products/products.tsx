@@ -9,7 +9,7 @@ import InfoBanner from "../../components/InfoBanner/InfoBanner";
 import LocalShippingIcon from '@mui/icons-material/LocalShipping';
 import HeadsetMicIcon from '@mui/icons-material/HeadsetMic';
 import SecurityIcon from '@mui/icons-material/Security';
-
+import ProductCardInFilter from "../../components/ProductInFilter/ProductCardInFilter";
 
 const TitleSectionOne: React.FC = () => {
     return (
@@ -24,7 +24,7 @@ const TitleFilter: React.FC = () => {
     return (
         <Grid container direction="column" display="flex" justifyContent="center" alignItems="center" textAlign="center">
             <Grid item>
-                <Typography variant="h3" sx={{ fontFamily: 'Inter, sans-serif', textAlign: 'center', fontWeight: 'bold', fontSize:"30px"}}>CATEGORIE</Typography>
+                <Typography variant="h3" sx={{ fontFamily: 'Inter, sans-serif', textAlign: 'center', fontWeight: 'bold', fontSize:"30px"}}>Categorie</Typography>
                 <Typography variant="subtitle2" sx={{ fontFamily: 'Inter, sans-serif', textAlign: 'center', fontWeight: 'lighter',fontSize:"9px", paddingTop:"1%"}}>SELEZIONA LA CATEGORIA DI TUO INTERESSE PER VISUALIZZARE I PRODOTTI.</Typography>
             </Grid>
         </Grid>
@@ -56,13 +56,27 @@ const GreenBarSection: React.FC = () => {
             </Box>
         );
     };
+const TitlepProductsSection: React.FC = () => {
+    return (
+        <Grid container direction="column" display="flex" justifyContent="center" alignItems="center" textAlign="center">
+            <Grid item>
+                <Typography variant="h3" sx={{ fontFamily: 'Inter, sans-serif', textAlign: 'center', fontWeight: 'bold', fontSize:"3rem"}}>Prodotti</Typography>
+                <Typography variant="subtitle2" sx={{ fontFamily: 'Inter, sans-serif', textAlign: 'center', fontWeight: 'lighter',fontSize:"1rem"}}>Scopri i nostri prodotti per categoria</Typography>
+            </Grid>
+        </Grid>
+    );
+};
 
-function LavanderiaButtons() {
+function NewItemInFilter() {
     return (
         <Box sx={{ width: '100%', borderColor: 'primary.main', p: 2, padding: '15px' }}>
             <Grid container alignItems="center" justifyContent="center">
                 <Grid item md={4} sx={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
-                    <Typography variant="h6" color="black" sx={{fontFamily: 'Inter, sans-serif', fontSize: "0.8rem"}}>LAVANDERIA</Typography>
+                    <Button
+                        variant="text"
+                        sx={{color: "black",fontWeight:"light", fontFamily: 'Inter, sans-serif', borderRadius:'0', fontSize: '0.800rem', '&:hover': {backgroundColor: '#8CB29C',},}}>
+                        Secadora
+                    </Button>
                 </Grid>
                 <Grid item md={8}>
                     <Box sx={{ height: 3, backgroundColor: "#8CB29C" }} />
@@ -71,23 +85,41 @@ function LavanderiaButtons() {
             <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1, mt: 2 }}>
                 <Button
                     variant="text"
-                    sx={{color: "black",fontFamily: 'Inter, sans-serif', fontSize: '0.650rem', '&:hover': {backgroundColor: '#8CB29C',},}}>
+                    sx={{color: "black",fontFamily: 'Inter, sans-serif',fontWeight:"regular", fontSize: '0.650rem', '&:hover': {backgroundColor: '#8CB29C',},}}>
                     Secadora
                 </Button>
                 <Button
                     variant="text"
-                    sx={{color: "black",fontFamily: 'Inter, sans-serif', fontSize: '0.650rem', '&:hover': {backgroundColor: '#8CB29C',},}}>
+                    sx={{color: "black",fontFamily: 'Inter, sans-serif',fontWeight:"regular", fontSize: '0.650rem', '&:hover': {backgroundColor: '#8CB29C',},}}>
                     Secadora
                 </Button>
                 <Button
                     variant="text"
-                    sx={{color: "black",fontFamily: 'Inter, sans-serif', fontSize: '0.650rem', '&:hover': {backgroundColor: '#8CB29C',},}}>
+                    sx={{color: "black",fontFamily: 'Inter, sans-serif',fontWeight:"regular", fontSize: '0.650rem', '&:hover': {backgroundColor: '#8CB29C',},}}>
                     Secadora
                 </Button>
             </Box>
         </Box>
     );
 }
+
+
+const ShowProducts: React.FC = () => {
+    return(
+        <Grid container>
+            <Grid item md={4} xs={12} sx={{padding: "5%", width:"50%",height:"10%"}}>
+                <ProductCardInFilter imageUrl={''} title={'Product title'} description={'some description'}/>
+            </Grid>
+            <Grid item md={4} xs={12} sx={{padding: "5%", width:"50%",height:"10%"}}>
+                <ProductCardInFilter imageUrl={''} title={'Product title'} description={'some description'}/>
+            </Grid>
+            <Grid item md={4} xs={12} sx={{padding: "5%", width:"50%",height:"10%"}}>
+                <ProductCardInFilter imageUrl={''} title={'Product title'} description={'some description'}/>
+            </Grid>
+        </Grid>
+    )
+}
+
 
 const Products: React.FC = () => {
     const isXS = useMediaQuery('(max-width:600px)');
@@ -98,16 +130,19 @@ const Products: React.FC = () => {
                 <Navbar />
                 <InfoBanner tittleComponent={<TitleSectionOne/>}/>
             </Grid>
-
             <Grid container sx={{paddingTop: '5%', paddingBottom: "5%",backgroundColor: '#D9D9D9'}}>
-                <Grid item md={3} xs={3}  sx={{height:"100vh", borderRight: "2.5px solid #8CB29C"}}>
+                <Grid item md={3} xs={3}  sx={{height: isXS ? "250vh":"150vh", borderRight: "2.5px solid #8CB29C"}}>
                     <TitleFilter/>
                     <GreenBarSection/>
-                    <LavanderiaButtons/>
-                    <LavanderiaButtons/>
-                    <LavanderiaButtons/>
+                    <NewItemInFilter/>
+                    <NewItemInFilter/>
+                    <NewItemInFilter/>
                 </Grid>
                 <Grid item md={9} xs={9}  sx={{height:"60vh"}}>
+                    <TitlepProductsSection/>
+                    <ShowProducts/>
+                    <ShowProducts/>
+                    <ShowProducts/>
                 </Grid>
             </Grid>
             <Footer/>
