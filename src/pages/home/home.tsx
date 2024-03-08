@@ -9,6 +9,7 @@ import Navbar from "../../components/navbar/toolbar";
 import Footer from "../../components/Footer/FooterPage"
 import FeedbackCardSwiper from "../../components/Swipper/Swipper";
 import HeroLeft02 from "../../components/OneProductAd/OneProductAd";
+
 interface Product {
     type: string;
     title: string;
@@ -23,32 +24,32 @@ interface AddCardsProps {
 const products: Product[] = [
     {
         type: "product",
-        title: "Produto 1",
-        description: "Descrição do produto 1",
+        title: "MAYTAG",
+        description: "Qui troverai tutti i modelli di asciugatrici e lavatrici maytag",
         imageUrl: "./images/Maytag-logo.png"
     },
     {
         type: "product",
-        title: "Produto 2",
-        description: "Descrição do produto 2",
+        title: "Whirlpool",
+        description: "Qui troverai tutti i modelli di asciugatrici e lavatrici whirpool",
         imageUrl: "./images/logo.png"
     },
     {
         type: "product",
-        title: "Produto 3",
-        description: "Descrição do produto 3",
+        title: "American Dryer Corp.",
+        description: "Qui troverai tutti i modelli di asciugatrici e lavatrici ADC",
         imageUrl: "./images/logo.png"
     },
     {
         type: "sponsor",
-        title: "Distributore Autorizzato MYTAG",
+        title: "Distributore Autorizzato MAYTAG",
         description: "La Maytag Corporation è un'azienda americana che produce" +
             " e commercializza elettrodomestici per la casa e commerciali. " +
             "La Maytag Washing Machine Company è stata fondata nel 1893 dall'imprenditore Frederick Maytag\n" + "\n" +
             "I prodotti dell'azienda \"Agas\" sono distribuiti con autorizzazione ufficiale da MYTAG. " +
             "Garantiamo qualità e affidabilità come distributore autorizzato. " +
             "Scegliete sicurezza ed eccellenza con i prodotti \"Agas\".",
-        imageUrl: "./images/logo.png"
+        imageUrl: "https://cdn.discordapp.com/attachments/1017600421335937104/1215490580944134194/Maytag-logo.png?ex=65fcf0d1&is=65ea7bd1&hm=cca1b142e9b4acaa52d1f25b8eb7add9aa95d01d1a02715fec81b394b1f9afc9&"
     },
     {
         type: "sponsor",
@@ -59,13 +60,13 @@ const products: Product[] = [
             "ufficiale da Whirlpool. Garantiamo qualità e affidabilità come " +
             "distributore autorizzato. Scegliete sicurezza ed eccellenza con i " +
             "prodotti 'Agas'.",
-        imageUrl: "./images/logo.png"
+        imageUrl: "https://cdn.discordapp.com/attachments/1017600421335937104/1215494786618753044/png-clipart-whirlpool-corporation-home-appliance-washing-machines-brand-maytag-others-thumbnail-removebg-preview.png?ex=65fcf4bb&is=65ea7fbb&hm=b5ff35b83c0e2441d562820c72a9a6dc42b167580e16c2ccab3125bbd2ceeeff&"
     },
     {
         type: "sponsor",
         title: "Distributore Autorizzato American Dryer corp.",
         description: "La American Dryer Corporation, o ADC, è leader nell'asciugatura industriale grazie alla loro innovazione e design guidato dagli ingegneri. I prodotti 'Agas' sono distribuiti con autorizzazione ufficiale da American Dryer Corp, garantendo qualità e affidabilità come distributore autorizzato. Scegliete sicurezza ed eccellenza con i prodotti 'Agas'.",
-        imageUrl: "./images/logo.png"
+        imageUrl: "https://media.discordapp.net/attachments/1017600421335937104/1215490579560144936/adc-logo.png?ex=65fcf0d0&is=65ea7bd0&hm=55dbd415e5d050ea1ad72465444cf1c769b68a2dc426f3459e215a967e254577&=&format=webp&quality=lossless&width=230&height=174"
     }
 ];
 
@@ -140,8 +141,8 @@ const TittleSectionTwo: React.FC = () => {
     return(
         <Grid item md={2} xs={4} className="tittle-Section-Two" sx={{marginTop:"8%"}}>
             <Grid container className="tittle-Section-Container">
-                <Typography variant="h1" className={"tittle-Nostri"} style={{width: '100%'}}>I Nostri Prodotti</Typography>
-                <Typography variant="subtitle1" sx={{ fontFamily: 'Inter, sans-serif', textAlign: 'center', fontWeight: 'light'}}>Gli articoli più venduti della nostra collezione </Typography>
+                <Typography variant="h1" className={"tittle-Nostri"} style={{width: '100%', fontSize: '3rem', fontFamily: 'Inter, sans-serif', fontWeight: 600}}>I Nostri Prodotti</Typography>
+                <Typography variant="subtitle1" sx={{ fontFamily: 'Inter, sans-serif', textAlign: 'center', fontWeight: 300}}>Gli articoli più venduti della nostra collezione </Typography>
             </Grid>
         </Grid>
     )
