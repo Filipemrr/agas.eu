@@ -1,6 +1,9 @@
 import ToolbarComponent from "../../components/toolbar/toolbar";
 import {Grid, Typography, useMediaQuery} from "@mui/material";
 import "./style.css";
+import Card from '@mui/material/Card';
+import CardMedia from '@mui/material/CardMedia';
+import CardContent from '@mui/material/CardContent';
 import ProductCard from "../../components/ProductsCard/ProductCard";
 import BannerAndTittle from "../../components/Banner/BannerAndTittle";
 import React from "react";
@@ -9,6 +12,8 @@ import Navbar from "../../components/navbar/toolbar";
 import Footer from "../../components/Footer/FooterPage"
 import FeedbackCardSwiper from "../../components/Swipper/Swipper";
 import HeroLeft02 from "../../components/OneProductAd/OneProductAd";
+import Box from '@mui/material/Box';
+
 
 interface Product {
     type: string;
@@ -16,27 +21,39 @@ interface Product {
     description: string;
     imageUrl: string;
 }
+
 interface AddCardsProps {
     CardType: string;
 }
 
+interface BenefitCardProps {
+    imageUrl: string;
+    title: string;
+    description: string;
+}
 
 const products: Product[] = [
     {
         type: "product",
-        title: "MAYTAG",
+        title: "Lavatrice",
         description: "Qui troverai tutti i modelli di asciugatrici e lavatrici maytag",
         imageUrl: "./images/Maytag-logo.png"
     },
     {
         type: "product",
-        title: "Whirlpool",
+        title: "Asciugatrice",
         description: "Qui troverai tutti i modelli di asciugatrici e lavatrici whirpool",
         imageUrl: "./images/logo.png"
     },
     {
         type: "product",
-        title: "American Dryer Corp.",
+        title: "Detersivi",
+        description: "Qui troverai tutti i modelli di asciugatrici e lavatrici ADC",
+        imageUrl: "./images/logo.png"
+    },
+    {
+        type: "product",
+        title: "Tubo Anticalcare",
         description: "Qui troverai tutti i modelli di asciugatrici e lavatrici ADC",
         imageUrl: "./images/logo.png"
     },
@@ -72,6 +89,27 @@ const products: Product[] = [
 
 
 
+const BenefitCard: React.FC<BenefitCardProps> = ({ imageUrl, title, description }) => {
+    return (
+        <Card sx={{ maxWidth: 345, marginTop: "15%" }}>
+        <CardMedia
+            sx={{ height:150, backgroundColor:"#CFCBCB"}}
+            image= {imageUrl}
+            title= {title}
+        />
+        <CardContent>
+            <Typography gutterBottom variant="h5" component="div" textAlign="center">
+            {title}
+            </Typography>
+            <Typography variant="body2" color="text.secondary" textAlign="center">
+            {description}
+            </Typography>
+        </CardContent>
+        </Card>
+        
+    );
+}
+
 const AddCards: React.FC<AddCardsProps> = ({CardType }) => {
     const isSmallScreen = useMediaQuery('(max-width:600px)');
     return (
@@ -105,13 +143,7 @@ const AddFeedback: React.FC = () => {
         <Grid container direction="column"
               sx={{paddingTop: isSmallScreen ? "5%" : "2%", display: "flex", alignItems: "center"}} md={12} xs={9}>
             <Grid item xs={10}>
-                <Typography color="#3F874E" variant="subtitle1" fontWeight="bold"
-                            sx={{fontSize: isSmallScreen ? "8.5vw" : "1vw", marginBottom: -1}}>
-                    Patrick. S
-                </Typography>
-                <Typography color="#8D8E90" variant="caption" fontWeight="light">
-                    La uso per tutto
-                </Typography>
+            
              <Grid item xs={12} sx={{width: isSmallScreen ? "40vh": "100vh", height:"100%", paddingTop: isSmallScreen ? "5%" : "2%" }}>
                  <FeedbackCardSwiper/>
              </Grid>
@@ -119,6 +151,7 @@ const AddFeedback: React.FC = () => {
         </Grid>
     );
 }
+
 const TittleSectionOne: React.FC = () => {
     return (
         <Grid item xs={12}>
@@ -137,16 +170,18 @@ const TittleSectionOne: React.FC = () => {
         </Grid>
     )
 }
+
 const TittleSectionTwo: React.FC = () => {
     return(
-        <Grid item md={2} xs={4} className="tittle-Section-Two" sx={{marginTop:"8%"}}>
+        <Grid item md={2} xs={4} className="tittle-Section-Two">
             <Grid container className="tittle-Section-Container">
-                <Typography variant="h1" className={"tittle-Nostri"} style={{width: '100%', fontSize: '3rem', fontFamily: 'Inter, sans-serif', fontWeight: 600}}>I Nostri Prodotti</Typography>
-                <Typography variant="subtitle1" sx={{ fontFamily: 'Inter, sans-serif', textAlign: 'center', fontWeight: 300}}>Gli articoli più venduti della nostra collezione </Typography>
+                <Typography variant="h1" className={"tittle-Nostri"} style={{width: '100%', fontSize: '3rem', fontFamily: 'Inter, sans-serif', fontWeight: 600}}>Perchè scegliere aGas</Typography>
+                <Typography variant="subtitle1" sx={{ marginTop: "2%", fontFamily: 'Inter, sans-serif', textAlign: 'center', fontWeight: 300}}>Con noi aiuterai l’ambiente eliminando bottiglie di plastica, prodotti chimici e risparmiando denaro.<br></br> Per te una gamma completa di Purificatori per l’acqua e per l’aria, Sistemi Anti-calcare, Sistemi di <br></br>Pulizia a Vapore e ad Ozono.</Typography>
             </Grid>
         </Grid>
     )
 }
+
 const TittleSectionThree: React.FC = () => {
     const isXS = useMediaQuery('(max-width:600px)');
     return (
@@ -156,12 +191,24 @@ const TittleSectionThree: React.FC = () => {
         </Grid>
     )
 }
+
 const TittleSectionFour: React.FC = () => {
     return(
         <Grid item md={1} xs={12}>
             <Typography variant="h2" style={{ paddingTop: "3%", fontFamily: 'Inter, sans-serif', fontWeight: 'bold', textAlign: 'center', color: "#FFFFFF", textShadow: "2px 2px 4px rgba(0, 0, 0, 0.5)" }}>
                 Opinioni dei clienti
             </Typography>
+        </Grid>
+    )
+}
+
+const TittleSectionProducts: React.FC = () => {
+    return(
+        <Grid item md={2} xs={4} className="tittle-Section-Two">
+            <Grid container className="tittle-Section-Container">
+                <Typography variant="h1" className={"tittle-Nostri"} style={{width: '100%', fontSize: '3rem', fontFamily: 'Inter, sans-serif', marginBottom: 25, fontWeight: 600}}>Ecco di cosa ci occupiamo</Typography>
+                <Typography variant="subtitle1" sx={{ fontFamily: 'Inter, sans-serif', textAlign: 'center', fontWeight: 300}}>Questi sono i nostri settori di competenza, approfondisci quello di Tuo interesse e richiedi liberamente altre informazioni</Typography>
+            </Grid>
         </Grid>
     )
 }
@@ -175,26 +222,49 @@ const Home: React.FC = () => {
                 <Navbar/>
                 <BannerAndTittle tittleComponent={<TittleSectionOne/>}/>
             </Grid>
-            <Grid item xs={12} className="sectionTwo" direction="column">
-                <TittleSectionTwo/>
+
+        <Grid item xs={12} className="sectionTwo" direction="column">
+            <Grid item direction="column" marginTop="5%">
+            <TittleSectionTwo/>
+                <Grid container justifyContent="center" spacing={4}> 
+                    <Grid item> 
+                    <BenefitCard imageUrl={''} title={"Qualità"} description={"Selezioniamo ed offriamo ai nostri clienti solo prodotti ed apparecchiature di alta qualità, certificati e costruiti in Italia."} />
+                    </Grid>
+                    <Grid item> 
+                    <BenefitCard imageUrl={"image-url-2"} title={"Prezzo"} description={"Facciamo il possibile per offrire le nostre soluzioni a prezzi equi e con modalità trasparenti. Puntiamo a raggiungere sempre il miglior rapporto qualità/prezzo."} />
+                    </Grid>
+                    <Grid item> 
+                    <BenefitCard imageUrl={"image-url-3"} title={"Assitenza Clienti"} description={"Il nostro servizio clienti è efficiente ed attento alle esigenze del cliente. Forniamo assistenza in modo puntuale e tempestivo."} />
+                    </Grid>
+                </Grid>
+            </Grid>
+        </Grid>
+
+        <Grid item xs={12} className="sectionProducts" direction="column">
+            <Grid item direction="column" marginTop="5%">
+                <TittleSectionProducts/>
                 <AddCards CardType="product"/>
             </Grid>
-            <Grid item xs={12} className="sectionThree" direction="column">
-                <BannerAndTittle
-                    tittleComponent={<TittleSectionThree/>}
-                    content={<AddCards CardType="sponsor"/>}
-                />
-                {isXS && <BannerAndTittle/>}
-            </Grid>
-            <Grid item md={8} xs={12} className="sectionFour" direction="column">
-                <TittleSectionFour/>
-                <AddFeedback/>
-            </Grid>
-            <Grid item md={8} xs={12} className="sectionFour" direction="column">
-                <HeroLeft02/>
-            </Grid>
-            <Footer/>
         </Grid>
+
+
+        <Grid item xs={12} className="sectionThree" direction="column">
+            <BannerAndTittle
+                tittleComponent={<TittleSectionThree/>}
+                content={<AddCards CardType="sponsor"/>}
+            />
+            {isXS && <BannerAndTittle/>}
+        </Grid>
+        <Grid item md={8} xs={12} className="sectionFour" direction="column">
+            <TittleSectionFour/>
+            <AddFeedback/>
+        </Grid>
+        
+        <Grid item md={8} xs={12} className="sectionThree" direction="column">
+            <HeroLeft02/>
+        </Grid>
+        <Footer/>
+    </Grid>
     );
 }
 

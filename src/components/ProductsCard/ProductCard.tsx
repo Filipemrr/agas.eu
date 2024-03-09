@@ -21,10 +21,10 @@ const ProductCard: React.FC<ProductCardProps> = ({ imageUrl, title, description 
                 title= {title}
             />
             <CardContent className={"cardContent"} sx={{ height:260 }}>
-                <Typography gutterBottom variant="h5" component="div" color={"white"}>
+                <Typography gutterBottom variant="h5" component="div" color={"white"} textAlign={"center"}>
                     {title}
                 </Typography>
-                <Typography variant="body2" color={"white"}>
+                <Typography variant="body2" color={"white"} textAlign={"center"}>
                     {description}
                 </Typography>
             </CardContent>
