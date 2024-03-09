@@ -3,7 +3,7 @@ import AspectRatio from '@mui/joy/AspectRatio';
 import Box from '@mui/joy/Box';
 import Container from '@mui/joy/Container';
 import { typographyClasses } from '@mui/joy/Typography';
-import ReactPlayer from 'react-player/youtube';
+import ReactPlayer from 'react-player'
 
 export default function TwoSidedLayout({children, reversed,}: React.PropsWithChildren<{ reversed?: boolean }>) {
     return (
@@ -66,10 +66,16 @@ export default function TwoSidedLayout({children, reversed,}: React.PropsWithChi
                 <ReactPlayer url="https://www.youtube.com/watch?v=4fFix5dUVgY"
                              width="100%"
                              height="100%"
+                             config={{
+                                 youtube: {
+                                     playerVars: { showinfo: 0, modestbranding: 1 }
+                                 },
+                             }}
                              controls={false}
                              loop
                              playing={true}
                              muted={true}
+
                 />
             </AspectRatio>
         </Container>
