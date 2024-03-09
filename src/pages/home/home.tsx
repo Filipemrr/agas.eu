@@ -35,7 +35,7 @@ const BenefitCard: React.FC<BenefitCardProps> = () => {
             <Grid item>
                 <Card sx={{ maxWidth: 345, marginTop: "15%", backgroundColor: "white"}}>
                     <CardMedia
-                        sx={{ display:"flex", alignItems: "center", justifyContent:"center", height:150, backgroundColor:"#CFCBCB"}}
+                        sx={{ display:"flex", alignItems: "center", justifyContent:"center", height:150, backgroundColor:"#D4D4D4"}}
                         title= "Titulo"
                     >
                         <SvgIcon component={DiamondIcon} sx={{ fontSize: '5rem', mb: 0.5 }} /></CardMedia>
@@ -53,7 +53,7 @@ const BenefitCard: React.FC<BenefitCardProps> = () => {
             <Grid item>
                 <Card sx={{ maxWidth: 345, marginTop: "15%" }}>
                     <CardMedia
-                        sx={{ display:"flex", alignItems: "center", justifyContent:"center", height:150, backgroundColor:"#CFCBCB"}}
+                        sx={{ display:"flex", alignItems: "center", justifyContent:"center", height:150, backgroundColor:"#D4D4D4"}}
                         title= "Titulo"
                     >
                         <SvgIcon component={AttachMoneyIcon} sx={{ fontSize: '5rem', mb: 0.5 }} /></CardMedia>
@@ -71,7 +71,7 @@ const BenefitCard: React.FC<BenefitCardProps> = () => {
             <Grid item>
                 <Card sx={{ maxWidth: 345, marginTop: "15%" }}>
                     <CardMedia
-                        sx={{ display:"flex", alignItems: "center", justifyContent:"center", height:150, backgroundColor:"#CFCBCB"}}
+                        sx={{ display:"flex", alignItems: "center", justifyContent:"center", height:150, backgroundColor:"#D4D4D4"}}
                         title= "Titulo"
                     >
                         <SvgIcon component={SupportIcon} sx={{ fontSize: '5rem', mb: 0.5 }} /></CardMedia>
