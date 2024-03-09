@@ -13,7 +13,9 @@ import Footer from "../../components/Footer/FooterPage"
 import FeedbackCardSwiper from "../../components/Swipper/Swipper";
 import HeroLeft02 from "../../components/OneProductAd/OneProductAd";
 import Box from '@mui/material/Box';
-import LocalShippingIcon from "@mui/icons-material/LocalShipping";
+import DiamondIcon from '@mui/icons-material/Diamond';
+import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
+import SupportIcon from '@mui/icons-material/Support';
 
 
 interface Product {
@@ -92,20 +94,20 @@ const products: Product[] = [
 
 const BenefitCard: React.FC<BenefitCardProps> = () => {
     return (
-        <Grid container spacing={2}>
+        <Grid container spacing={5}>
             <Grid item>
-                <Card sx={{ maxWidth: 345, marginTop: "15%" }}>
+                <Card sx={{ maxWidth: 345, marginTop: "15%", backgroundColor: "white"}}>
                     <CardMedia
                         sx={{ display:"flex", alignItems: "center", justifyContent:"center", height:150, backgroundColor:"#CFCBCB"}}
                         title= "Titulo"
                     >
-                        <SvgIcon component={LocalShippingIcon} sx={{ fontSize: '5rem', mb: 0.5 }} /></CardMedia>
+                        <SvgIcon component={DiamondIcon} sx={{ fontSize: '5rem', mb: 0.5 }} /></CardMedia>
                     <CardContent>
                         <Typography gutterBottom variant="h5" component="div" textAlign="center">
-                            Titulo Do Produto
+                            Qualità
                         </Typography>
                         <Typography variant="body2" color="text.secondary" textAlign="center">
-                            Descricao do produto
+                        Selezioniamo ed offriamo ai nostri clienti solo prodotti ed apparecchiature di alta qualità, certificati e costruiti in Italia.
                         </Typography>
                     </CardContent>
                 </Card>
@@ -117,13 +119,13 @@ const BenefitCard: React.FC<BenefitCardProps> = () => {
                         sx={{ display:"flex", alignItems: "center", justifyContent:"center", height:150, backgroundColor:"#CFCBCB"}}
                         title= "Titulo"
                     >
-                        <SvgIcon component={LocalShippingIcon} sx={{ fontSize: '5rem', mb: 0.5 }} /></CardMedia>
+                        <SvgIcon component={AttachMoneyIcon} sx={{ fontSize: '5rem', mb: 0.5 }} /></CardMedia>
                     <CardContent>
                         <Typography gutterBottom variant="h5" component="div" textAlign="center">
-                            Titulo Do Produto
+                            Prezzo
                         </Typography>
                         <Typography variant="body2" color="text.secondary" textAlign="center">
-                            Descricao do produto
+                        Facciamo il possibile per offrire le nostre soluzioni a prezzi equi e con modalità trasparenti. Puntiamo a raggiungere sempre il miglior rapporto qualità/prezzo.
                         </Typography>
                     </CardContent>
                 </Card>
@@ -135,13 +137,13 @@ const BenefitCard: React.FC<BenefitCardProps> = () => {
                         sx={{ display:"flex", alignItems: "center", justifyContent:"center", height:150, backgroundColor:"#CFCBCB"}}
                         title= "Titulo"
                     >
-                        <SvgIcon component={LocalShippingIcon} sx={{ fontSize: '5rem', mb: 0.5 }} /></CardMedia>
+                        <SvgIcon component={SupportIcon} sx={{ fontSize: '5rem', mb: 0.5 }} /></CardMedia>
                     <CardContent>
                         <Typography gutterBottom variant="h5" component="div" textAlign="center">
-                            Titulo Do Produto
+                            Assistenza Clienti
                         </Typography>
                         <Typography variant="body2" color="text.secondary" textAlign="center">
-                            Descricao do produto
+                        Il nostro servizio clienti è efficiente ed attento alle esigenze del cliente. Forniamo assistenza in modo puntuale e tempestivo.
                         </Typography>
                     </CardContent>
                 </Card>
@@ -295,7 +297,7 @@ const Home: React.FC = () => {
             <AddFeedback/>
         </Grid>
         
-        <Grid item md={8} xs={12} className="sectionThree" direction="column">
+        <Grid item md={8} xs={12} className="sectionFour" direction="column">
             <HeroLeft02/>
         </Grid>
         <Footer/>
