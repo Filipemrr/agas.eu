@@ -24,17 +24,17 @@ const TitleSectionOne: React.FC = () => {
 }
 const TitleFilter: React.FC = () => {
     return (
-        <Grid container direction="column" display="flex" justifyContent="center" alignItems="center" textAlign="center">
+        <Grid container direction="column" display="flex" justifyContent="center" alignItems="center" textAlign="center" sx={{height: "9vh"}}>
             <Grid item>
                 <Typography variant="h3" sx={{ fontFamily: 'Inter, sans-serif', textAlign: 'center', fontWeight: 'bold', fontSize:"30px"}}>Categorie</Typography>
-                <Typography variant="subtitle2" sx={{ fontFamily: 'Inter, sans-serif', textAlign: 'center', fontWeight: 'lighter',fontSize:"9px", paddingTop:"1%"}}>SELEZIONA LA CATEGORIA DI TUO INTERESSE PER VISUALIZZARE I PRODOTTI.</Typography>
+                <Typography variant="subtitle2" sx={{ fontFamily: 'Inter, sans-serif', textAlign: 'center', fontWeight: 'lighter',fontSize:"9px"}}>SELEZIONA LA CATEGORIA DI TUO INTERESSE PER VISUALIZZARE I PRODOTTI.</Typography>
             </Grid>
         </Grid>
     );
 };
 const GreenBarSection: React.FC = () => {
         return (
-            <Box sx={{ width: '100%', backgroundColor: '#8CB29C', color: 'white', height:"40px"}}>
+            <Box sx={{ width: '100%', backgroundColor: '#8CB29C', color: 'white', height:"7vh",display: 'flex', alignItems: 'center'}}>
                 <Grid container justifyContent="space-around" alignItems="center" sx={{ p: 1 }}>
                     <Grid item>
                         <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', fontSize: '0.8rem' }}>
@@ -57,7 +57,7 @@ const GreenBarSection: React.FC = () => {
     };
 const TitlepProductsSection: React.FC = () => {
     return (
-        <Grid container direction="column" display="flex" justifyContent="center" alignItems="center" textAlign="center">
+        <Grid container direction="column" display="flex" justifyContent="center" alignItems="center" textAlign="center" sx={{height: "9vh"}}>
             <Grid item>
                 <Typography variant="h3" sx={{ fontFamily: 'Inter, sans-serif', textAlign: 'center', fontWeight: 'bold', fontSize:"3rem"}}>Prodotti</Typography>
                 <Typography variant="subtitle2" sx={{ fontFamily: 'Inter, sans-serif', textAlign: 'center', fontWeight: 'lighter',fontSize:"1rem"}}>Scopri i nostri prodotti per categoria</Typography>
@@ -68,7 +68,7 @@ const TitlepProductsSection: React.FC = () => {
 
 function NewItemInFilter() {
     return (
-        <Box sx={{ width: '100%', borderColor: 'primary.main', p: 2, padding: '15px' }}>
+        <Box sx={{ width: '100%', borderColor: 'primary.main', p: 2 }}>
             <Grid container alignItems="center" justifyContent="center">
                 <Grid item md={4} sx={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
                     <Button
@@ -135,6 +135,7 @@ const Filter: React.FC = () => {
         </Grid>
     );
 }
+
 
 const Products: React.FC = () => {
     const isXS = useMediaQuery('(max-width:600px)');
