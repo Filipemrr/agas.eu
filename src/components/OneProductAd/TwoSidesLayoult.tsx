@@ -5,6 +5,7 @@ import Container from '@mui/joy/Container';
 import { typographyClasses } from '@mui/joy/Typography';
 import ReactPlayer from 'react-player'
 
+
 export default function TwoSidedLayout({children, reversed,}: React.PropsWithChildren<{ reversed?: boolean }>) {
     return (
         <Container

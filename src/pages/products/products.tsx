@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import {Box, Grid, Typography, useMediaQuery,  SvgIcon, Button} from "@mui/material";
 import Footer from "../../components/Footer/FooterPage"
 import Toolbar from "../../components/toolbar/toolbar";
@@ -10,6 +10,9 @@ import LocalShippingIcon from '@mui/icons-material/LocalShipping';
 import HeadsetMicIcon from '@mui/icons-material/HeadsetMic';
 import SecurityIcon from '@mui/icons-material/Security';
 import ProductCardInFilter from "../../components/ProductInFilter/ProductCardInFilter";
+
+const backGroundSize = 150;
+
 const TitleSectionOne: React.FC = () => {
     return (
         <Grid item xs={12}>
@@ -31,24 +34,21 @@ const TitleFilter: React.FC = () => {
 };
 const GreenBarSection: React.FC = () => {
         return (
-            <Box sx={{ width: '100%', backgroundColor: '#8CB29C', color: 'white', height:"7%"}}>
+            <Box sx={{ width: '100%', backgroundColor: '#8CB29C', color: 'white', height:"40px"}}>
                 <Grid container justifyContent="space-around" alignItems="center" sx={{ p: 1 }}>
                     <Grid item>
                         <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', fontSize: '0.8rem' }}>
                             <SvgIcon component={LocalShippingIcon} sx={{ fontSize: '1.5rem', mb: 0.5 }} />
-                            <Typography variant="caption" sx={{ fontSize: '0.6rem' }}>SPEDIZIONE <br/>GARANTIDA</Typography>
                         </Box>
                     </Grid>
                     <Grid item>
                         <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', fontSize: '0.8rem' }}>
                             <SvgIcon component={HeadsetMicIcon} sx={{ fontSize: '1.5rem', mb: 0.5 }} />
-                            <Typography variant="caption" sx={{ fontSize: '0.6rem' }}>ASSISTENZA 24/7</Typography>
                         </Box>
                     </Grid>
                     <Grid item>
                         <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', fontSize: '0.8rem' }}>
                             <SvgIcon component={SecurityIcon} sx={{ fontSize: '1.5rem', mb: 0.5 }} />
-                            <Typography variant="caption" sx={{ fontSize: '0.6rem' }}>PAGAMENTI SICURI</Typography>
                         </Box>
                     </Grid>
                 </Grid>
@@ -146,7 +146,7 @@ const Products: React.FC = () => {
                 <InfoBanner tittleComponent={<TitleSectionOne/>}/>
             </Grid>
             <Grid container sx={{paddingBottom: "5%",backgroundColor: '#D9D9D9'}}>
-                <Grid item md={3} xs={3}  sx={{paddingTop:"3%",height: isXS ? "250vh":"150vh", borderRight: "2.5px solid #8CB29C", borderTop: "2.5px solid #8CB29C"}}>
+                <Grid item md={3} xs={3}  sx={{paddingTop:"3%",height: isXS ? "250vh":"100vh", borderRight: "2.5px solid #8CB29C", borderTop: "2.5px solid #8CB29C"}}>
                     <TitleFilter/>
                     <GreenBarSection/>
                     <NewItemInFilter/>
