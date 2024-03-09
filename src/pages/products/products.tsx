@@ -10,7 +10,6 @@ import LocalShippingIcon from '@mui/icons-material/LocalShipping';
 import HeadsetMicIcon from '@mui/icons-material/HeadsetMic';
 import SecurityIcon from '@mui/icons-material/Security';
 import ProductCardInFilter from "../../components/ProductInFilter/ProductCardInFilter";
-
 const TitleSectionOne: React.FC = () => {
     return (
         <Grid item xs={12}>
@@ -32,7 +31,7 @@ const TitleFilter: React.FC = () => {
 };
 const GreenBarSection: React.FC = () => {
         return (
-            <Box sx={{ width: '100%', backgroundColor: '#8CB29C', color: 'white' }}>
+            <Box sx={{ width: '100%', backgroundColor: '#8CB29C', color: 'white', height:"7%"}}>
                 <Grid container justifyContent="space-around" alignItems="center" sx={{ p: 1 }}>
                     <Grid item>
                         <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', fontSize: '0.8rem' }}>
@@ -104,7 +103,7 @@ function NewItemInFilter() {
 }
 
 
-const ShowProducts: React.FC = () => {
+const ListProducts: React.FC = () => {
     return(
         <Grid container>
             <Grid item md={4} xs={12} sx={{padding: "5%", width:"50%",height:"10%"}}>
@@ -113,13 +112,29 @@ const ShowProducts: React.FC = () => {
             <Grid item md={4} xs={12} sx={{padding: "5%", width:"50%",height:"10%"}}>
                 <ProductCardInFilter imageUrl={''} title={'Product title'} description={'some description'}/>
             </Grid>
-            <Grid item md={4} xs={12} sx={{padding: "5%", width:"50%",height:"10%"}}>
+            <Grid item md={4} xs={12} sx={{padding: "5%", width:"50%",height:"70px"}}>
                 <ProductCardInFilter imageUrl={''} title={'Product title'} description={'some description'}/>
             </Grid>
         </Grid>
     )
 }
 
+const Filter: React.FC = () => {
+    const ButtonLabels= ["All", "Maquina", "Secadora", "Lavadora"];
+    return (
+        <Grid container spacing={2} sx={{height:"70px", padding: "20px"}}>
+            {ButtonLabels.map((label: string, index: number) => (
+                <Grid item key={index}>
+                    <Button
+                        variant="text"
+                        sx={{border:"1px solid #8CB29C", color: "black",fontWeight:550, fontFamily: 'Inter, sans-serif', borderRadius:'40px', fontSize: '0.600rem', '&:hover': {backgroundColor: '#8CB29C',},}}>
+                        {label}
+                    </Button>
+                </Grid>
+            ))}
+        </Grid>
+    );
+}
 
 const Products: React.FC = () => {
     const isXS = useMediaQuery('(max-width:600px)');
@@ -130,19 +145,18 @@ const Products: React.FC = () => {
                 <Navbar />
                 <InfoBanner tittleComponent={<TitleSectionOne/>}/>
             </Grid>
-            <Grid container sx={{paddingTop: '5%', paddingBottom: "5%",backgroundColor: '#D9D9D9'}}>
-                <Grid item md={3} xs={3}  sx={{height: isXS ? "250vh":"150vh", borderRight: "2.5px solid #8CB29C"}}>
+            <Grid container sx={{paddingBottom: "5%",backgroundColor: '#D9D9D9'}}>
+                <Grid item md={3} xs={3}  sx={{paddingTop:"3%",height: isXS ? "250vh":"150vh", borderRight: "2.5px solid #8CB29C", borderTop: "2.5px solid #8CB29C"}}>
                     <TitleFilter/>
                     <GreenBarSection/>
                     <NewItemInFilter/>
                     <NewItemInFilter/>
                     <NewItemInFilter/>
                 </Grid>
-                <Grid item md={9} xs={9}  sx={{height:"60vh"}}>
+                <Grid item md={9} xs={9}  sx={{paddingTop:"3%",height:"60vh", borderTop: "2.5px solid #8CB29C"}}>
                     <TitlepProductsSection/>
-                    <ShowProducts/>
-                    <ShowProducts/>
-                    <ShowProducts/>
+                    <Filter/>
+                    <ListProducts/>
                 </Grid>
             </Grid>
             <Footer/>

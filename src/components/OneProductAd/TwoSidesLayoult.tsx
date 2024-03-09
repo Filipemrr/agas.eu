@@ -63,11 +63,13 @@ export default function TwoSidedLayout({children, reversed,}: React.PropsWithChi
                     flexBasis: '50%',
                 })}
             >
-                <ReactPlayer url={`https://www.youtube.com/watch?v=4fFix5dUVgY&t=24s`}
-                             width='100%'
-                             height='100%'
+                <ReactPlayer url="https://www.youtube.com/watch?v=4fFix5dUVgY"
+                             width="100%"
+                             height="100%"
                              controls={false}
                              loop
+                             playing={true}
+                             muted={true}
                 />
             </AspectRatio>
         </Container>

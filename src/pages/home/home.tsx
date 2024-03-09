@@ -1,5 +1,5 @@
 import ToolbarComponent from "../../components/toolbar/toolbar";
-import {Grid, Typography, useMediaQuery} from "@mui/material";
+import {Grid, SvgIcon, Typography, useMediaQuery} from "@mui/material";
 import "./style.css";
 import Card from '@mui/material/Card';
 import CardMedia from '@mui/material/CardMedia';
@@ -13,6 +13,7 @@ import Footer from "../../components/Footer/FooterPage"
 import FeedbackCardSwiper from "../../components/Swipper/Swipper";
 import HeroLeft02 from "../../components/OneProductAd/OneProductAd";
 import Box from '@mui/material/Box';
+import LocalShippingIcon from "@mui/icons-material/LocalShipping";
 
 
 interface Product {
@@ -89,24 +90,64 @@ const products: Product[] = [
 
 
 
-const BenefitCard: React.FC<BenefitCardProps> = ({ imageUrl, title, description }) => {
+const BenefitCard: React.FC<BenefitCardProps> = () => {
     return (
-        <Card sx={{ maxWidth: 345, marginTop: "15%" }}>
-        <CardMedia
-            sx={{ height:150, backgroundColor:"#CFCBCB"}}
-            image= {imageUrl}
-            title= {title}
-        />
-        <CardContent>
-            <Typography gutterBottom variant="h5" component="div" textAlign="center">
-            {title}
-            </Typography>
-            <Typography variant="body2" color="text.secondary" textAlign="center">
-            {description}
-            </Typography>
-        </CardContent>
-        </Card>
-        
+        <Grid container spacing={2}>
+            <Grid item>
+                <Card sx={{ maxWidth: 345, marginTop: "15%" }}>
+                    <CardMedia
+                        sx={{ display:"flex", alignItems: "center", justifyContent:"center", height:150, backgroundColor:"#CFCBCB"}}
+                        title= "Titulo"
+                    >
+                        <SvgIcon component={LocalShippingIcon} sx={{ fontSize: '5rem', mb: 0.5 }} /></CardMedia>
+                    <CardContent>
+                        <Typography gutterBottom variant="h5" component="div" textAlign="center">
+                            Titulo Do Produto
+                        </Typography>
+                        <Typography variant="body2" color="text.secondary" textAlign="center">
+                            Descricao do produto
+                        </Typography>
+                    </CardContent>
+                </Card>
+            </Grid>
+
+            <Grid item>
+                <Card sx={{ maxWidth: 345, marginTop: "15%" }}>
+                    <CardMedia
+                        sx={{ display:"flex", alignItems: "center", justifyContent:"center", height:150, backgroundColor:"#CFCBCB"}}
+                        title= "Titulo"
+                    >
+                        <SvgIcon component={LocalShippingIcon} sx={{ fontSize: '5rem', mb: 0.5 }} /></CardMedia>
+                    <CardContent>
+                        <Typography gutterBottom variant="h5" component="div" textAlign="center">
+                            Titulo Do Produto
+                        </Typography>
+                        <Typography variant="body2" color="text.secondary" textAlign="center">
+                            Descricao do produto
+                        </Typography>
+                    </CardContent>
+                </Card>
+            </Grid>
+
+            <Grid item>
+                <Card sx={{ maxWidth: 345, marginTop: "15%" }}>
+                    <CardMedia
+                        sx={{ display:"flex", alignItems: "center", justifyContent:"center", height:150, backgroundColor:"#CFCBCB"}}
+                        title= "Titulo"
+                    >
+                        <SvgIcon component={LocalShippingIcon} sx={{ fontSize: '5rem', mb: 0.5 }} /></CardMedia>
+                    <CardContent>
+                        <Typography gutterBottom variant="h5" component="div" textAlign="center">
+                            Titulo Do Produto
+                        </Typography>
+                        <Typography variant="body2" color="text.secondary" textAlign="center">
+                            Descricao do produto
+                        </Typography>
+                    </CardContent>
+                </Card>
+            </Grid>
+
+        </Grid>
     );
 }
 
@@ -229,12 +270,6 @@ const Home: React.FC = () => {
                 <Grid container justifyContent="center" spacing={4}> 
                     <Grid item> 
                     <BenefitCard imageUrl={''} title={"Qualità"} description={"Selezioniamo ed offriamo ai nostri clienti solo prodotti ed apparecchiature di alta qualità, certificati e costruiti in Italia."} />
-                    </Grid>
-                    <Grid item> 
-                    <BenefitCard imageUrl={"image-url-2"} title={"Prezzo"} description={"Facciamo il possibile per offrire le nostre soluzioni a prezzi equi e con modalità trasparenti. Puntiamo a raggiungere sempre il miglior rapporto qualità/prezzo."} />
-                    </Grid>
-                    <Grid item> 
-                    <BenefitCard imageUrl={"image-url-3"} title={"Assitenza Clienti"} description={"Il nostro servizio clienti è efficiente ed attento alle esigenze del cliente. Forniamo assistenza in modo puntuale e tempestivo."} />
                     </Grid>
                 </Grid>
             </Grid>
