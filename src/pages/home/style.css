@@ -15,7 +15,7 @@
 }
 
 .sectionTwo {
-    background: #D4D4D4;
+    background: radial-gradient(circle, #8CB29C, #7ba98e, #1f7745);
     height: 100%;
     padding-bottom: 10%;
 }

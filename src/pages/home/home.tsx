@@ -158,25 +158,42 @@ const TittleSectionTwo: React.FC = () => {
     return(
         <Grid item md={2} xs={4} className="tittle-Section-Two">
             <Grid container className="tittle-Section-Container">
-            <Typography
-    variant="h1"
-    className="title-Nostri"
-    sx={{
-      width: '100%',
-      // Apply font sizes for specific breakpoints
-      fontSize: {
-        xs: '1rem', 
-        sm: '2rem',
-        md: '3rem',  
-      },
-      fontFamily: 'Inter, sans-serif',
-      fontWeight: 600,
-    }}>Perchè scegliere aGas</Typography>
-                <Typography variant="subtitle1" sx={{ marginTop: "2%", fontFamily: 'Inter, sans-serif', textAlign: 'center', width: '40%', fontWeight: 300}}>Con noi aiuterai l’ambiente eliminando bottiglie di plastica, prodotti chimici e risparmiando denaro. Per te una gamma completa di Purificatori per l’acqua e per l’aria, Sistemi Anti-calcare, Sistemi di Pulizia a Vapore e ad Ozono.</Typography>
+                <Typography
+                    variant="h1"
+                    className="title-Nostri"
+                    sx={{
+                        width: '100%',
+                        fontSize: {
+                            xs: '1rem',
+                            sm: '2rem',
+                            md: '3rem',
+                        },
+                        color: "#e1e1e1",
+                        fontFamily: 'Inter, sans-serif',
+                        fontWeight: 600,
+
+                    }}
+                >
+                    Perchè scegliere aGas ?
+                </Typography>
+                <Typography
+                    variant="subtitle1"
+                    sx={{
+                        color: "#e1e1e1",
+                        marginTop: "2%",
+                        fontFamily: 'Inter, sans-serif',
+                        textAlign: 'center',
+                        width: '40%',
+                        fontWeight: 300
+                    }}
+                >
+                    Con noi aiuterai l’ambiente eliminando bottiglie di plastica, prodotti chimici e risparmiando denaro. Per te una gamma completa di Purificatori per l’acqua e per l’aria, Sistemi Anti-calcare, Sistemi di Pulizia a Vapore e ad Ozono.
+                </Typography>
             </Grid>
         </Grid>
-    )
+    );
 }
+
 
 const TittleSectionThree: React.FC = () => {
     const isXS = useMediaQuery('(max-width:600px)');

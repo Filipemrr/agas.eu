@@ -10,7 +10,7 @@ import LocalShippingIcon from '@mui/icons-material/LocalShipping';
 import HeadsetMicIcon from '@mui/icons-material/HeadsetMic';
 import SecurityIcon from '@mui/icons-material/Security';
 import ProductCardInFilter from "../../components/ProductInFilter/ProductCardInFilter";
-
+import {products} from '../../data/productsData';
 const backGroundSize = 150;
 
 const TitleSectionOne: React.FC = () => {
@@ -138,15 +138,28 @@ const ListProducts: React.FC = () => {
     );
 }
 
+const handleButtonClick = (label: string) => {
+    console.log(label);
+}
+
 const Filter: React.FC = () => {
-    const ButtonLabels= ["All", "Maquina", "Secadora", "Lavadora"];
+
+    let ButtonLabels: string[] = ["All"];
+    products.forEach(item => {
+        if (!ButtonLabels.includes(item.type)){
+            ButtonLabels.push(item.type);
+        }
+    })
+
     return (
         <Grid container sx={{display: "flex", alignItems: "center", justifyContent:"center", height:"6vh", padding: "20px", borderTop: "2.5px solid #8CB29C", borderBottom: "2.5px solid #8CB29C"}}>
             {ButtonLabels.map((label: string, index: number) => (
                 <Grid item sx={{paddingLeft: "1.5%"}} key={index}>
                     <Button
                         variant="text"
-                        sx={{border:"1px solid #8CB29C", color: "black",fontWeight:550, fontFamily: 'Inter, sans-serif', borderRadius:'40px', fontSize: '0.600rem', '&:hover': {backgroundColor: '#8CB29C',},}}>
+                        sx={{border:"1px solid #8CB29C", color: "black",fontWeight:550, fontFamily: 'Inter, sans-serif', borderRadius:'40px', fontSize: '0.600rem', '&:hover': {backgroundColor: '#8CB29C',},}}
+                        onClick={() => handleButtonClick(label)}
+                    >
                         {label}
                     </Button>
                 </Grid>

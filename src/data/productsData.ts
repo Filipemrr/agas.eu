@@ -47,7 +47,7 @@ const products: Product[] = [
         isMain: false
     },
     {
-        type: "water_filter",
+        type: "Water Filter",
         title: "Tubo Anticalcare",
         description: "Qui troverai tutti i modelli di asciugatrici e lavatrici ADC",
         imageUrl: "https://media.discordapp.net/attachments/1017600421335937104/1216174116214931587/removal.ai_63c7ca46-d7cd-4452-ae1a-792f03386648-screenshot-2024-03-09-at-18-59-09.png?ex=65ff6d68&is=65ecf868&hm=500fdc7c9b2536f56e62be46a64c6c1b4fabfda90c82044f0c9bd109ccbad0da&=&format=webp&quality=lossless&width=870&height=884",
