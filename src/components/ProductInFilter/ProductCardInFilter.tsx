@@ -14,7 +14,7 @@ interface ProductCardProps {
 
 const ProductCardInFilter: React.FC<ProductCardProps> = ({ imageUrl, title, description }) => {
     return (
-        <Card sx={{ maxWidth: 270, border:"1px solid #2D2F36" }}>
+        <Card sx={{ width: 270, border:"1px solid #2D2F36" }}>
             <CardMedia
                 sx={{ height:160, backgroundColor:"#CFCBCB"}}
                 image= {imageUrl}
