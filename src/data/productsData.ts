@@ -119,26 +119,6 @@ const products: Product[] = [
         isCoin: true,
         isMain: true
     },
-    {
-        type: "detergent",
-        title: "Lavatrice Maytag",
-        description: "Qui troverai tutti i modelli di asciugatrici e lavatrici ADC",
-        imageUrl: "./images/logo.png",
-        brand: 'maytag',
-        isEletric: false,
-        isCoin: true,
-        isMain: true
-    },
-    {
-        type: "water_filter",
-        title: "Lavatrice Maytag",
-        description: "Qui troverai tutti i modelli di asciugatrici e lavatrici ADC",
-        imageUrl: "./images/logo.png",
-        brand: 'maytag',
-        isEletric: false,
-        isCoin: true,
-        isMain: true
-    },
 
 ];
 
