@@ -10,7 +10,7 @@ export default function oneProductAd() {
     return (
         <TwoSidedLayout>
             <Typography color="primary" fontSize="lg" fontWeight="lg" sx={{color: "#3CA062"}}>
-                The power to do more
+                il potere di fare di più
             </Typography>
             <Typography
                 level="h1"
@@ -18,11 +18,10 @@ export default function oneProductAd() {
             fontSize="clamp(1.875rem, 1.3636rem + 2.1818vw, 3rem)"
                 sx={{color: "white"}}
                 >
-                Veja a nossa grande gama de produtos
+                Scopri la nostra vasta gamma di prodotti
             </Typography>
             <Typography fontSize="lg" textColor="white" lineHeight="lg">
-                A descriptive secondary text placeholder. Use it to explain your business
-            offer better.
+            la migliore offerta per la tua attività
             </Typography>
             <Box
             sx={{
@@ -72,15 +71,15 @@ export default function oneProductAd() {
             4.9
             </Typography>
             <Typography textColor="white">
-                Over <b>5k</b> positive <br /> customer reviews.
+                Più di <b>1k</b> cliente <br /> sodisfati.
             </Typography>
             </div>
             <div>
             <Typography textColor="white" fontSize="xl4" fontWeight="lg">
-                2M
+                1M
             </Typography>
             <Typography textColor="white">
-                Global <br /> Transactions.
+                di macchine vendute <br /> in tutta Italia.
                 </Typography>
                 </div>
                 </Box>

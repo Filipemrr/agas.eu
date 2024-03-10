@@ -16,7 +16,7 @@ import Box from '@mui/material/Box';
 import DiamondIcon from '@mui/icons-material/Diamond';
 import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
 import SupportIcon from '@mui/icons-material/Support';
-import products from '../../data/productsData';
+import { products, sponsors} from '../../data/productsData';
 
 interface AddCardsProps {
     CardType: string;
@@ -35,11 +35,11 @@ const BenefitCard: React.FC<BenefitCardProps> = () => {
             <Grid item>
                 <Card sx={{ maxWidth: 345, marginTop: "15%", backgroundColor: "white"}}>
                     <CardMedia
-                        sx={{ display:"flex", alignItems: "center", justifyContent:"center", height:150, backgroundColor:"#CFCBCB"}}
+                        sx={{ display:"flex", alignItems: "center", justifyContent:"center", height:150, backgroundColor:"#D4D4D4"}}
                         title= "Titulo"
                     >
                         <SvgIcon component={DiamondIcon} sx={{ fontSize: '5rem', mb: 0.5 }} /></CardMedia>
-                    <CardContent>
+                    <CardContent >
                         <Typography gutterBottom variant="h5" component="div" textAlign="center">
                             Qualità
                         </Typography>
@@ -53,7 +53,7 @@ const BenefitCard: React.FC<BenefitCardProps> = () => {
             <Grid item>
                 <Card sx={{ maxWidth: 345, marginTop: "15%" }}>
                     <CardMedia
-                        sx={{ display:"flex", alignItems: "center", justifyContent:"center", height:150, backgroundColor:"#CFCBCB"}}
+                        sx={{ display:"flex", alignItems: "center", justifyContent:"center", height:150, backgroundColor:"#D4D4D4"}}
                         title= "Titulo"
                     >
                         <SvgIcon component={AttachMoneyIcon} sx={{ fontSize: '5rem', mb: 0.5 }} /></CardMedia>
@@ -71,7 +71,7 @@ const BenefitCard: React.FC<BenefitCardProps> = () => {
             <Grid item>
                 <Card sx={{ maxWidth: 345, marginTop: "15%" }}>
                     <CardMedia
-                        sx={{ display:"flex", alignItems: "center", justifyContent:"center", height:150, backgroundColor:"#CFCBCB"}}
+                        sx={{ display:"flex", alignItems: "center", justifyContent:"center", height:150, backgroundColor:"#D4D4D4"}}
                         title= "Titulo"
                     >
                         <SvgIcon component={SupportIcon} sx={{ fontSize: '5rem', mb: 0.5 }} /></CardMedia>
@@ -92,24 +92,27 @@ const BenefitCard: React.FC<BenefitCardProps> = () => {
 
 const AddCards: React.FC<AddCardsProps> = ({CardType }) => {
     const isSmallScreen = useMediaQuery('(max-width:600px)');
+
+    const cards = CardType === 'products' ? products : sponsors;
+
     return (
         <Grid item md={8} xs={12} sx={{ paddingTop: isSmallScreen ? "10%" : "2%" }}>
             <Grid container className={"cardsRow"} spacing={3}>
-                {products.filter(product => product.type === CardType).map((product, index: number) => (
+                {cards.map((card, index) => (
                     <Grid item key={index}>
-                        {CardType === "sponsor" ? (
-                            <SponsorCard
-                                imageUrl={product.imageUrl}
-                                title={product.title}
-                                description={product.description}
-                            />
-                        ) : (
+                        {CardType !== 'sponsors' && 'isMain' in card && !card.isMain ? (
                             <ProductCard
-                                imageUrl={product.imageUrl}
-                                title={product.title}
-                                description={product.description}
+                                imageUrl={card.imageUrl}
+                                title={card.title}
+                                description={card.description}
                             />
-                        )}
+                        ) : CardType === 'sponsors' ? (
+                            <SponsorCard
+                                imageUrl={card.imageUrl}
+                                title={card.title}
+                                description={card.description}
+                            />
+                        ) : null}
                     </Grid>
                 ))}
             </Grid>
@@ -169,7 +172,7 @@ const TittleSectionTwo: React.FC = () => {
       fontFamily: 'Inter, sans-serif',
       fontWeight: 600,
     }}>Perchè scegliere aGas</Typography>
-                <Typography variant="subtitle1" sx={{ marginTop: "2%", fontFamily: 'Inter, sans-serif', textAlign: 'center', fontWeight: 300}}>Con noi aiuterai l’ambiente eliminando bottiglie di plastica, prodotti chimici e risparmiando denaro. Per te una gamma completa di Purificatori per l’acqua e per l’aria, Sistemi Anti-calcare, Sistemi di Pulizia a Vapore e ad Ozono.</Typography>
+                <Typography variant="subtitle1" sx={{ marginTop: "2%", fontFamily: 'Inter, sans-serif', textAlign: 'center', width: '40%', fontWeight: 300}}>Con noi aiuterai l’ambiente eliminando bottiglie di plastica, prodotti chimici e risparmiando denaro. Per te una gamma completa di Purificatori per l’acqua e per l’aria, Sistemi Anti-calcare, Sistemi di Pulizia a Vapore e ad Ozono.</Typography>
             </Grid>
         </Grid>
     )
@@ -189,7 +192,7 @@ const TittleSectionFour: React.FC = () => {
     return(
         <Grid item md={1} xs={12}>
             <Typography variant="h2" style={{ paddingTop: "3%", fontFamily: 'Inter, sans-serif', fontWeight: 'bold', textAlign: 'center', color: "#FFFFFF", textShadow: "2px 2px 4px rgba(0, 0, 0, 0.5)" }}>
-                Opinioni dei clienti
+                La voce dei nostri Clienti
             </Typography>
         </Grid>
     )
@@ -230,7 +233,7 @@ const Home: React.FC = () => {
         <Grid item xs={12} className="sectionProducts" direction="column">
             <Grid item direction="column" marginTop="5%">
                 <TittleSectionProducts/>
-                <AddCards CardType="product"/>
+                <AddCards CardType="products"/>
             </Grid>
         </Grid>
 
@@ -238,7 +241,7 @@ const Home: React.FC = () => {
         <Grid item xs={12} className="sectionThree" direction="column">
             <BannerAndTittle
                 tittleComponent={<TittleSectionThree/>}
-                content={<AddCards CardType="sponsor"/>}
+                content={<AddCards CardType="sponsors"/>}
             />
             {isXS && <BannerAndTittle/>}
         </Grid>

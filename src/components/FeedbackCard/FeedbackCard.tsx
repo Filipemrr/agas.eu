@@ -8,10 +8,11 @@ import Typography from '@mui/joy/Typography';
 
 interface props {
     title: string,
-    content: string
+    location: string
+    content: string,
 }
 
-export default function FeedbackCard({ title, content }: props) {
+export default function FeedbackCard({ title, location, content }: props) {
     return (
         <Card
             variant="outlined"
@@ -26,6 +27,15 @@ export default function FeedbackCard({ title, content }: props) {
                 borderBottom: "4px solid #3CA062"
             }}
         >
+            
+            <CardContent sx={{width: '80%', marginTop: '5%'}}>
+                <Typography level="body-sm" sx={{fontSize: '90%'}}>
+                    {content}
+                </Typography>
+                <Typography level="title-lg" sx={{marginTop: '6%'}}>{title}</Typography>
+                <Typography level="title-lg" sx={{fontSize: '90%'}}>{location}</Typography>
+            </CardContent>
+
             <Box
                 sx={{
                     display: 'flex',
@@ -41,12 +51,6 @@ export default function FeedbackCard({ title, content }: props) {
                     <Avatar>+112</Avatar>
                 </AvatarGroup>
             </Box>
-            <CardContent>
-                <Typography level="title-lg">{title}</Typography>
-                <Typography level="body-sm">
-                    {content}
-                </Typography>
-            </CardContent>
         </Card>
     );
 }
