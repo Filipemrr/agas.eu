@@ -178,13 +178,13 @@ const Filter: React.FC = () => {
 
     return (
         <div>
-            <Grid container sx={{ display: "flex", alignItems: "center", justifyContent: "center", height: "6vh", padding: "20px", borderTop: "2.5px solid #8CB29C", borderBottom: "2.5px solid #8CB29C" }}>
+            <Grid container sx={{ display: "flex", alignItems: "center", justifyContent: "center", height: "6vh", borderTop: "2.5px solid #8CB29C", borderBottom: "2.5px solid #8CB29C" }}>
                 {ButtonLabels.map((label, index) => (
-                    <Grid item sx={{ paddingLeft: "1.5%" }} key={index}>
+                    <Grid item sx={{ paddingLeft: "1.5%", display: "flex", alignItems: "center", justifyContent: "center" }} key={index}>
                         <Button
                             key={index} onClick={() => handleButtonClick(label)}
                             variant="text"
-                            sx={{ border: "1px solid #8CB29C", color: "black", fontWeight: 550, fontFamily: 'Inter, sans-serif', borderRadius: '40px', fontSize: '0.600rem', '&:hover': { backgroundColor: '#8CB29C', }, }}
+                            sx={{  display: "flex", alignItems: "center", justifyContent: "center" ,border: "1px solid #8CB29C", color: "black", fontWeight: 550, fontFamily: 'Inter, sans-serif', borderRadius: '40px', fontSize: '0.600rem', '&:hover': { backgroundColor: '#8CB29C', }, }}
                         >
                             {label}
                         </Button>
