@@ -1,4 +1,6 @@
+
 interface Product {
+    id: number;
     type: string;
     title: string;
     description: string;
@@ -17,6 +19,7 @@ interface Sponsor {
 
 const products: Product[] = [
     {
+        id: 1,
         type: "washer",
         title: "Lavatrice",
         description: "Qui troverai tutti i modelli di asciugatrici e lavatrici maytag",
@@ -27,6 +30,7 @@ const products: Product[] = [
         isMain: false
     },
     {
+        id: 2,
         type: "dryer",
         title: "Asciugatrice",
         description: "Qui troverai tutti i modelli di asciugatrici e lavatrici whirpool",
@@ -37,6 +41,7 @@ const products: Product[] = [
         isMain: false
     },
     {
+        id: 3,
         type: "detergent",
         title: "Detersivi",
         description: "Qui troverai tutti i modelli di asciugatrici e lavatrici ADC",
@@ -47,6 +52,7 @@ const products: Product[] = [
         isMain: false
     },
     {
+        id: 4,
         type: "Water Filter",
         title: "Tubo Anticalcare",
         description: "Qui troverai tutti i modelli di asciugatrici e lavatrici ADC",
@@ -58,6 +64,7 @@ const products: Product[] = [
     },
     // Eletric Washer Maytag
     {
+        id: 5,
         type: "washer",
         title: "Lavatrice Maytag",
         description: "Qui troverai tutti i modelli di asciugatrici e lavatrici ADC",
@@ -68,6 +75,7 @@ const products: Product[] = [
         isMain: true
     },
     {
+        id: 6,
         type: "washer",
         title: "Lavatrice Maytag",
         description: "Qui troverai tutti i modelli di asciugatrici e lavatrici ADC",
@@ -79,6 +87,7 @@ const products: Product[] = [
     },
     // Eletric Dryer Maytag
     {
+        id: 7,
         type: "dryer",
         title: "Lavatrice Maytag",
         description: "Qui troverai tutti i modelli di asciugatrici e lavatrici ADC",
@@ -89,6 +98,7 @@ const products: Product[] = [
         isMain: true
     },
     {
+        id: 8,
         type: "washer",
         title: "Lavatrice Maytag",
         description: "Qui troverai tutti i modelli di asciugatrici e lavatrici ADC",
@@ -100,6 +110,7 @@ const products: Product[] = [
     },
     // Gas Washer Maytag
     {
+        id: 9,
         type: "dryer",
         title: "Lavatrice Maytag",
         description: "Qui troverai tutti i modelli di asciugatrici e lavatrici ADC",
@@ -110,6 +121,7 @@ const products: Product[] = [
         isMain: true
     },
     {
+        id: 10,
         type: "dryer",
         title: "Lavatrice Maytag",
         description: "Qui troverai tutti i modelli di asciugatrici e lavatrici ADC",

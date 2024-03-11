@@ -13,6 +13,11 @@ import ProductCardInFilter from "../../components/ProductInFilter/ProductCardInF
 import {products} from '../../data/productsData';
 const backGroundSize = 150;
 
+
+interface ListProductsPropos {
+    type: string;
+}
+
 const TitleSectionOne: React.FC = () => {
     return (
         <Grid item xs={12}>
@@ -102,71 +107,67 @@ function NewItemInFilter() {
     );
 }
 
-
-const ListProducts: React.FC = () => {
+const ListProducts: React.FC<ListProductsPropos> = ({ type }) => {
+    const filteredProducts = type === 'All' ? products : products.filter(product => product.type === type);
     return (
         <Grid container sx={{
             display: "flex",
             alignItems: "center",
             height: "50%",
+            paddingTop: "5%"
         }}>
-            <Grid item md={4} xs={12} sx={{
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                height: "100%"
-            }}>
-                <ProductCardInFilter imageUrl={''} title={'Product title'} description={'some description'}/>
-            </Grid>
-            <Grid item md={4} xs={12} sx={{
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                height: "100%",
-            }}>
-                <ProductCardInFilter imageUrl={''} title={'Product tittle '} description={'some description'}/>
-            </Grid>
-            <Grid item md={4} xs={12} sx={{
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                height: "100%"
-            }}>
-                <ProductCardInFilter imageUrl={''} title={'Product title'} description={'some description'}/>
-            </Grid>
-        </Grid>
-    );
-}
-
-const handleButtonClick = (label: string) => {
-    console.log(label);
-}
-
-const Filter: React.FC = () => {
-
-    let ButtonLabels: string[] = ["All"];
-    products.forEach(item => {
-        if (!ButtonLabels.includes(item.type)){
-            ButtonLabels.push(item.type);
-        }
-    })
-
-    return (
-        <Grid container sx={{display: "flex", alignItems: "center", justifyContent:"center", height:"6vh", padding: "20px", borderTop: "2.5px solid #8CB29C", borderBottom: "2.5px solid #8CB29C"}}>
-            {ButtonLabels.map((label: string, index: number) => (
-                <Grid item sx={{paddingLeft: "1.5%"}} key={index}>
-                    <Button
-                        variant="text"
-                        sx={{border:"1px solid #8CB29C", color: "black",fontWeight:550, fontFamily: 'Inter, sans-serif', borderRadius:'40px', fontSize: '0.600rem', '&:hover': {backgroundColor: '#8CB29C',},}}
-                        onClick={() => handleButtonClick(label)}
-                    >
-                        {label}
-                    </Button>
+            {filteredProducts.map((product) => (
+                <Grid item md={4} xs={12} key={product.id} sx={{
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    height: "100%",
+                    paddingBottom: "5%"
+                }}>
+                    <ProductCardInFilter
+                        imageUrl={product.imageUrl}
+                        title={product.title}
+                        description={product.description}
+                    />
                 </Grid>
             ))}
         </Grid>
     );
+};
+
+
+const Filter: React.FC = () => {
+    let ButtonLabels: string[] = ["All"];
+    products.forEach(item => {
+        if (!ButtonLabels.includes(item.type)) {
+            ButtonLabels.push(item.type);
+        }
+    });
+    const [selectedType, setSelectedType] = useState<string>('All');
+    const handleButtonClick = (label: string) => {
+        setSelectedType(label);
+    };
+
+    return (
+        <div>
+            <Grid container sx={{ display: "flex", alignItems: "center", justifyContent: "center", height: "6vh", padding: "20px", borderTop: "2.5px solid #8CB29C", borderBottom: "2.5px solid #8CB29C" }}>
+                {ButtonLabels.map((label, index) => (
+                    <Grid item sx={{ paddingLeft: "1.5%" }} key={index}>
+                        <Button
+                            key={index} onClick={() => handleButtonClick(label)}
+                            variant="text"
+                            sx={{ border: "1px solid #8CB29C", color: "black", fontWeight: 550, fontFamily: 'Inter, sans-serif', borderRadius: '40px', fontSize: '0.600rem', '&:hover': { backgroundColor: '#8CB29C', }, }}
+                        >
+                            {label}
+                        </Button>
+                    </Grid>
+                ))}
+            </Grid>
+            <ListProducts type={selectedType} />
+        </div>
+    );
 }
+
 
 
 const Products: React.FC = () => {
@@ -179,7 +180,7 @@ const Products: React.FC = () => {
                 <InfoBanner tittleComponent={<TitleSectionOne/>}/>
             </Grid>
             <Grid container sx={{paddingBottom: "5%",backgroundColor: '#D9D9D9'}}>
-                <Grid item md={3} xs={3}  sx={{paddingTop:"3%",height: isXS ? "250vh":"100vh", borderRight: "2.5px solid #8CB29C", borderTop: "2.5px solid #8CB29C"}}>
+                <Grid item md={3} xs={3}  sx={{paddingTop:"3%",height: isXS ? "250vh":"200vh", borderRight: "2.5px solid #8CB29C", borderTop: "2.5px solid #8CB29C"}}>
                     <TitleFilter/>
                     <GreenBarSection/>
                     <NewItemInFilter/>
@@ -189,7 +190,6 @@ const Products: React.FC = () => {
                 <Grid item md={9} xs={9}  sx={{paddingTop:"3%",height:"60vh", borderTop: "2.5px solid #8CB29C"}}>
                     <TitlepProductsSection/>
                     <Filter/>
-                    <ListProducts/>
                 </Grid>
             </Grid>
             <Footer/>
