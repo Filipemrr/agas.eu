@@ -71,41 +71,71 @@ const TitlepProductsSection: React.FC = () => {
     );
 };
 
-function NewItemInFilter() {
+function AllProductsSideBar() {
+    // Armazenando todos os tipos únicos.
+    let types : string[] = [];
+    products.forEach(product => {
+        if (!types.includes(product.type)) {
+            types.push(product.type);
+        }});
+
+    const [selectedType, setSelectedType] = useState<string>('All');
+    const handleButtonClick = (label: string) => {
+        setSelectedType(label);
+    };
+
     return (
-        <Box sx={{ width: '100%', borderColor: 'primary.main', p: 2 }}>
-            <Grid container alignItems="center" justifyContent="center">
-                <Grid item md={4} sx={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
-                    <Button
-                        variant="text"
-                        sx={{color: "black",fontWeight:"light", fontFamily: 'Inter, sans-serif', borderRadius:'0', fontSize: '0.800rem', '&:hover': {backgroundColor: '#8CB29C',},}}>
-                        Secadora
-                    </Button>
-                </Grid>
-                <Grid item md={8}>
-                    <Box sx={{ height: 3, backgroundColor: "#8CB29C" }} />
-                </Grid>
-            </Grid>
-            <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1, mt: 2 }}>
-                <Button
-                    variant="text"
-                    sx={{color: "black",fontFamily: 'Inter, sans-serif',fontWeight:"regular", fontSize: '0.650rem', '&:hover': {backgroundColor: '#8CB29C',},}}>
-                    Secadora
-                </Button>
-                <Button
-                    variant="text"
-                    sx={{color: "black",fontFamily: 'Inter, sans-serif',fontWeight:"regular", fontSize: '0.650rem', '&:hover': {backgroundColor: '#8CB29C',},}}>
-                    Secadora
-                </Button>
-                <Button
-                    variant="text"
-                    sx={{color: "black",fontFamily: 'Inter, sans-serif',fontWeight:"regular", fontSize: '0.650rem', '&:hover': {backgroundColor: '#8CB29C',},}}>
-                    Secadora
-                </Button>
-            </Box>
-        </Box>
+        <div>
+            {types.map(type => (
+                <React.Fragment key={type}>
+                    <Box sx={{ width: '100%', borderColor: 'primary.main', p: 1, mt: 2 }}>
+                        <Grid container alignItems="center" justifyContent="center">
+                            <Grid item md={4} sx={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
+                                <Button
+                                    variant="text"
+                                    sx={{
+                                        color: "black",
+                                        fontWeight: "bold",
+                                        fontFamily: 'Inter, sans-serif',
+                                        borderRadius: '0',
+                                        fontSize: '0.800rem',
+                                        '&:hover': { backgroundColor: '#8CB29C', },
+
+                                    }}
+                                >
+                                    {type}
+                                </Button>
+                            </Grid>
+                            <Grid item md={8}>
+                                <Box sx={{ height: 3, backgroundColor: "#8CB29C" }} />
+                            </Grid>
+                        </Grid>
+                    </Box>
+                    {/* Aqui renderizamos todos os produtos desse tipo */}
+                    {products.filter(product => product.type === type).map(product => (
+                        <Box key={product.id} sx={{ width: '100%', borderColor: 'primary.main', p: 0.4}}>
+                            <Box sx={{ display: 'flex', flexDirection: 'column'}}>
+                                <Button
+                                    variant="text"
+                                    sx={{
+                                        color: "black",
+                                        fontFamily: 'Inter, sans-serif',
+                                        fontWeight: "regular",
+                                        fontSize: '0.650rem',
+                                        '&:hover': { backgroundColor: '#8CB29C', },
+                                    }}
+                                >
+                                    {product.title}
+                                </Button>
+                            </Box>
+                        </Box>
+                    ))}
+                </React.Fragment>
+            ))}
+        </div>
     );
 }
+
 
 const ListProducts: React.FC<ListProductsPropos> = ({ type }) => {
     const filteredProducts = type === 'All' ? products : products.filter(product => product.type === type);
@@ -134,8 +164,6 @@ const ListProducts: React.FC<ListProductsPropos> = ({ type }) => {
         </Grid>
     );
 };
-
-
 const Filter: React.FC = () => {
     let ButtonLabels: string[] = ["All"];
     products.forEach(item => {
@@ -183,9 +211,7 @@ const Products: React.FC = () => {
                 <Grid item md={3} xs={3}  sx={{paddingTop:"3%",height: isXS ? "250vh":"200vh", borderRight: "2.5px solid #8CB29C", borderTop: "2.5px solid #8CB29C"}}>
                     <TitleFilter/>
                     <GreenBarSection/>
-                    <NewItemInFilter/>
-                    <NewItemInFilter/>
-                    <NewItemInFilter/>
+                    <AllProductsSideBar/>
                 </Grid>
                 <Grid item md={9} xs={9}  sx={{paddingTop:"3%",height:"60vh", borderTop: "2.5px solid #8CB29C"}}>
                     <TitlepProductsSection/>
