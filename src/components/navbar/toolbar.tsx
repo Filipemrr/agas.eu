@@ -40,7 +40,7 @@ export default function Navbar() {
             <AppBar position="static" sx={{ backgroundColor: 'transparent' }} elevation={0}>
                 <Toolbar sx={{ justifyContent: 'flex-end' }}>
                     <ButtonGroup sx={{ ...styles.buttonGroup }} aria-label="button group">
-                        <Button  sx={{ ...styles.customButton }} onClick={handleClick('/home')}>Home</Button>
+                        <Button  sx={{ ...styles.customButton }} onClick={handleClick('/')}>Home</Button>
                         <Button  sx={{ ...styles.customButton }} onClick={handleClick('/NostriProdotti')}>Prodotti</Button>
                         <Button  sx={{ ...styles.customButton }} onClick={handleClick('/chisiamo')}>Chi Siamo</Button>
                         <Button  sx={{ ...styles.customButton }} onClick={handleClick('/contatti')}>Contati</Button>
