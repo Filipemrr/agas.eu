@@ -22,7 +22,7 @@ const TitleSectionOne: React.FC = () => {
 const TitleSectionTwo: React.FC = () => {
     return (
         <Grid item xs={12}>
-            <Typography variant="h2" style={{ fontFamily: 'Inter, sans-serif', marginTop: '6%', marginLeft: '10%', fontSize: '18px', textAlign: 'left', color: 'black' }}>
+            <Typography variant="h2" style={{ fontFamily: 'Inter, sans-serif', marginTop: '6%', marginLeft: '10%', fontSize: '18px', textAlign: 'left', color: '#D4D4D4' }}>
             <span style={{ fontWeight: 'bold' }}>aGas</span> è l'unico importatore e distributore diretto di asciugatrici e lavatrici dei marchi americani Maytag e Whirpool ed altri marchi. <br/>
             <br/>
             aGas commercializza altri prodotti/accessori tra cui le salviette ammorbidenti, antistatiche e profumate, detersivi per il bucato ideali ad uso Professionale e domestico.<br/><br/>
