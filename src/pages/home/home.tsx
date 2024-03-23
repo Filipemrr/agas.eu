@@ -12,6 +12,7 @@ import Navbar from "../../components/navbar/toolbar";
 import Footer from "../../components/Footer/FooterPage"
 import FeedbackCardSwiper from "../../components/Swipper/Swipper";
 import HeroLeft02 from "../../components/OneProductAd/OneProductAd";
+import EmailForm from "../../components/EmailForm/EmailForm";
 import Box from '@mui/material/Box';
 import DiamondIcon from '@mui/icons-material/Diamond';
 import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
@@ -97,25 +98,32 @@ const AddCards: React.FC<AddCardsProps> = ({CardType }) => {
 
     return (
         <Grid item md={8} xs={12} sx={{ paddingTop: isSmallScreen ? "10%" : "2%" }}>
-            <Grid container className={"cardsRow"} spacing={3}>
-                {cards.map((card, index) => (
-                    <Grid item key={index}>
-                        {CardType !== 'sponsors' && 'isMain' in card && !card.isMain ? (
-                            <ProductCard
-                                imageUrl={card.imageUrl}
-                                title={card.title}
-                                description={card.description}
-                            />
-                        ) : CardType === 'sponsors' ? (
-                            <SponsorCard
-                                imageUrl={card.imageUrl}
-                                title={card.title}
-                                description={card.description}
-                            />
-                        ) : null}
-                    </Grid>
-                ))}
-            </Grid>
+           <Grid container className={"cardsRow"} spacing={3}>
+            {cards.map((card, index) => {
+                const shouldRenderCard = (CardType !== 'sponsors') && ('isMain' in card) && (!card.isMain) || (CardType === 'sponsors');
+                
+                if (shouldRenderCard) {
+                    return (
+                        <Grid item key={index}>
+                            {CardType !== 'sponsors' && 'isMain' in card && !card.isMain ? (
+                                <ProductCard
+                                    imageUrl={card.imageUrl}
+                                    title={card.title}
+                                    description={card.description}
+                                />
+                            ) : CardType === 'sponsors' ? (
+                                <SponsorCard
+                                    imageUrl={card.imageUrl}
+                                    title={card.title}
+                                    description={card.description}
+                                />
+                            ) : null}
+                        </Grid>
+                    );
+                }
+                return null; 
+            })}
+        </Grid>
         </Grid>
     );
 }
@@ -215,6 +223,20 @@ const TittleSectionFour: React.FC = () => {
     )
 }
 
+const TittleSectionEmail: React.FC = () => {
+    return (
+        <Grid container className="tittle-Section-Container">
+            <Grid item md={1} xs={12}>
+                <Typography variant="h6" style={{ paddingTop: "3%", fontFamily: 'Inter, sans-serif', fontWeight: 'bold', textAlign: 'center', color: "#FFFFFF"}}>
+                RICHIEDI MAGGIORI INFORMAZIONI
+                SUI VANTAGGI DI UN LAVAGGIO ECOLOGICO
+                </Typography>
+            </Grid>
+            <EmailForm/>
+        </Grid>
+    )
+}
+
 const TittleSectionProducts: React.FC = () => {
     return(
         <Grid item md={2} xs={4} className="tittle-Section-Two">
@@ -262,6 +284,11 @@ const Home: React.FC = () => {
             />
             {isXS && <BannerAndTittle/>}
         </Grid>
+
+        <Grid item xs={12} className="sectionThree" direction="column">
+           <TittleSectionEmail/>
+        </Grid>
+
         <Grid item md={8} xs={12} className="sectionFour" direction="column">
             <TittleSectionFour/>
             <AddFeedback/>
