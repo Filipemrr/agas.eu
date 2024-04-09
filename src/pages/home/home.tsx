@@ -285,9 +285,6 @@ const Home: React.FC = () => {
             {isXS && <BannerAndTittle/>}
         </Grid>
 
-        <Grid item xs={12} className="sectionThree" direction="column">
-           <TittleSectionEmail/>
-        </Grid>
 
         <Grid item md={8} xs={12} className="sectionFour" direction="column">
             <TittleSectionFour/>
